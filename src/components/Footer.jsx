@@ -6,7 +6,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Chisomo Banzi. All rights reserved.
         </p>
         <p className="font-orbitron text-[10px] tracking-[0.25em] uppercase text-stone-400">
-          Australia
+          Australia / Taiwan
         </p>
       </div>
     </footer>

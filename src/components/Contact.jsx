@@ -40,9 +40,9 @@ const SocialIcon = ({ icon }) => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="relative bg-stone-900 text-white py-20 sm:py-32 overflow-hidden">
+    <section id="contact" className="relative py-20 sm:py-32 overflow-hidden">
       {/* 3D Globe Background */}
-      <div className="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-20 md:opacity-30">
+      <div className="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-30 md:opacity-50">
         <Canvas
           camera={{ position: [0, 0, 4], fov: 50 }}
           dpr={[1, 1.5]}
@@ -58,18 +58,18 @@ const Contact = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-16">
         <div className="max-w-xl">
           {/* Label */}
-          <p className="font-orbitron text-[11px] tracking-[0.3em] uppercase text-orange-500 font-medium">
+          <p className="font-orbitron text-[11px] tracking-[0.3em] uppercase text-orange-600 font-medium">
             Get in Touch
           </p>
 
           {/* Heading */}
-          <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.03em] mt-4 text-white">
+          <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.03em] mt-4 text-stone-800">
             Let&apos;s Work
             <br />
             Together
           </h2>
 
-          <p className="font-inter text-stone-400 text-base leading-relaxed mt-6 max-w-md">
+          <p className="font-inter text-stone-500 text-base leading-relaxed mt-6 max-w-md">
             Available for set design positions on major productions and
             collaboration on immersive/XR and virtual production projects.
           </p>
@@ -89,7 +89,7 @@ const Contact = () => {
               href="https://www.imdb.com/name/nm12855764/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-stone-600 hover:border-orange-500 text-stone-300 hover:text-orange-500 font-inter font-medium text-sm px-6 py-3 rounded transition-colors duration-200"
+              className="inline-flex items-center gap-2 border border-stone-300 hover:border-orange-600 text-stone-600 hover:text-orange-600 font-inter font-medium text-sm px-6 py-3 rounded transition-colors duration-200"
             >
               View IMDB
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -106,7 +106,7 @@ const Contact = () => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-500 hover:text-orange-500 transition-colors duration-200"
+                className="text-stone-400 hover:text-orange-600 transition-colors duration-200"
                 aria-label={link.name}
               >
                 <SocialIcon icon={link.icon} />

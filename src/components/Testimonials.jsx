@@ -47,13 +47,20 @@ const Testimonials = () => {
               </p>
 
               {/* Attribution */}
-              <div className="mt-8">
-                <p className="font-orbitron text-sm font-semibold text-stone-800 tracking-[0.1em]">
-                  {t.name}
-                </p>
-                <p className="font-inter text-sm text-stone-400 mt-1">
-                  {t.title}
-                </p>
+              <div className="mt-8 flex items-center justify-center gap-4">
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div className="text-left">
+                  <p className="font-orbitron text-sm font-semibold text-stone-800 tracking-[0.1em]">
+                    {t.name}
+                  </p>
+                  <p className="font-inter text-sm text-stone-400 mt-1">
+                    {t.title}
+                  </p>
+                </div>
               </div>
             </motion.div>
           </AnimatePresence>

@@ -1,3 +1,18 @@
+import rhino from '../assets/tech/rhino.png';
+import blender from '../assets/tech/blender.png';
+import unreal from '../assets/tech/unreal.png';
+import grasshopper from '../assets/tech/grasshopper.png';
+import python from '../assets/tech/python.png';
+import cplusplus from '../assets/tech/cplusplus.png';
+import affinity from '../assets/tech/affinity.png';
+import perforce from '../assets/tech/perforce.png';
+import gitIcon from '../assets/tech/git.png';
+
+import english from '../assets/languages/english.png';
+import chinese from '../assets/languages/chinese.png';
+import portuguese from '../assets/languages/portuguese.png';
+import shona from '../assets/languages/shona.png';
+
 export const navLinks = [
   { id: 'work', title: 'Work' },
   { id: 'about', title: 'About' },
@@ -64,6 +79,11 @@ export const projects = [
   },
 ];
 
+import davidlee from '../assets/people/davidlee.jpg';
+import peterbaustaedter from '../assets/people/peterbaustaetder.jpg';
+import tomnursey from '../assets/people/tomnursey.jpg';
+import noahkadner from '../assets/people/noahkadner.jpg';
+
 export const testimonials = [
   {
     id: 1,
@@ -71,6 +91,7 @@ export const testimonials = [
     title: 'Production Designer — Nautilus, Watchmen, Brave New World',
     quote:
       'A joy to work with! He has been a great fit for the team.',
+    image: davidlee,
   },
   {
     id: 2,
@@ -78,6 +99,7 @@ export const testimonials = [
     title: 'VFX Art Director — Metropolis, Avatar, Rings of Power',
     quote:
       'Absolute powerhouse. Really great bridge between Art department and VAD.',
+    image: peterbaustaedter,
   },
   {
     id: 3,
@@ -85,6 +107,7 @@ export const testimonials = [
     title: 'Supervising Art Director — The Wilds, Mortal Kombat, Pacific Rim: Uprising',
     quote:
       'A very important member of the best little design team I have had.',
+    image: tomnursey,
   },
   {
     id: 4,
@@ -92,6 +115,7 @@ export const testimonials = [
     title: 'VP Editor, American Cinematographer',
     quote:
       'Any virtual production would be lucky to have someone as talented and curious as you on their team!',
+    image: noahkadner,
   },
 ];
 
@@ -130,3 +154,22 @@ export const stats = [
 ];
 
 export const filterTabs = ['ALL', 'FILM', 'VR'];
+
+export const technologies = [
+  { name: 'Rhino3D', icon: rhino },
+  { name: 'Blender', icon: blender },
+  { name: 'Unreal', icon: unreal },
+  { name: 'Grasshopper', icon: grasshopper },
+  { name: 'Python', icon: python },
+  { name: 'C++', icon: cplusplus },
+  { name: 'Affinity', icon: affinity },
+  { name: 'Perforce', icon: perforce },
+  { name: 'Git', icon: gitIcon },
+];
+
+export const languages = [
+  { name: 'English', icon: english, level: 'Native' },
+  { name: 'Mandarin', icon: chinese, level: 'Advanced' },
+  { name: 'Portuguese', icon: portuguese, level: 'Beginner' },
+  { name: 'Shona', icon: shona, level: 'Beginner' },
+];
