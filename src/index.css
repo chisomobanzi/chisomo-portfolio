@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fafaf9;
+}
+::-webkit-scrollbar-thumb {
+  background: #a8a29e;
+  border-radius: 3px;
+}
+
+/* ── Selection ── */
+::selection {
+  background: #ea580c;
+  color: white;
+}
+
+/* ── Mouse-following gradient overlay (applied via JS) ── */
+.mouse-gradient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(
+    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(234, 88, 12, 0.03),
+    transparent 60%
+  );
+  transition: background 0.3s ease;
+}
+
+/* ── Section fade-in animation ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Project card hover glow ── */
+.project-card-glow {
+  position: relative;
+  overflow: hidden;
+}
+.project-card-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+}
+.project-card-glow:hover::before {
+  opacity: 1;
+}
+
+/* ── Canvas container ── */
+.canvas-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ── Dot navigation ── */
+.dot-nav button {
+  transition: all 0.3s ease;
+}
+
+/* ── Green underline animation ── */
+.accent-underline {
+  position: relative;
+}
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ea580c;
+  transition: width 0.3s ease;
+}
+.accent-underline:hover::after {
+  width: 100%;
+}
