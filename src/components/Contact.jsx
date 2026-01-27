@@ -172,7 +172,7 @@ const Contact = () => {
               <p className="font-inter text-sm text-red-500">
                 Something went wrong. Please try{' '}
                 <a
-                  href="mailto:chisomo@truefictionstudio.com"
+                  href="mailto:chisbanzi@gmail.com"
                   className="underline hover:text-orange-600"
                 >
                   emailing directly

@@ -36,10 +36,10 @@ const About = () => {
             {/* Text */}
             <div>
               <motion.p variants={fadeInUp} custom={1} className={styles.sectionSubText}>
-                About
+                Background
               </motion.p>
               <motion.h2 variants={fadeInUp} custom={2} className={`${styles.sectionHeadText} mt-2`}>
-                Background
+                About Me
               </motion.h2>
               <motion.p
                 variants={fadeInUp}

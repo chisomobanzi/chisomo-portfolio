@@ -120,6 +120,11 @@ const FeaturedProjects = () => {
                       <span className="font-orbitron text-[10px] tracking-[0.25em] uppercase text-stone-400">
                         {current.platform} — {current.year}
                       </span>
+                      {current.releasing && (
+                        <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-orange-100 text-orange-600 px-2 py-0.5 rounded">
+                          Releasing Soon
+                        </span>
+                      )}
                     </div>
 
                     {/* Title */}

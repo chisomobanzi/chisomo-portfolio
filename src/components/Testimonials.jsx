@@ -22,7 +22,7 @@ const Testimonials = () => {
         {/* Label */}
         <p className={styles.sectionSubText}>Testimonials</p>
         <h2 className={`${styles.sectionHeadText} mt-2 mb-16`}>
-          Kind Words
+          From the Set
         </h2>
 
         {/* Testimonial Card */}

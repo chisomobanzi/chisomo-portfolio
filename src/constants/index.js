@@ -25,7 +25,8 @@ export const projects = [
     index: 0,
     title: 'The Bluff',
     platform: 'Amazon Prime Video',
-    year: '2024',
+    year: '2026',
+    releasing: true,
     role: 'Set Designer',
     tagline: 'Period drama for Amazon Prime Video',
     description:
@@ -39,7 +40,7 @@ export const projects = [
     index: 1,
     title: 'Constellations',
     platform: 'Meta Quest',
-    year: '2025',
+    year: '2026',
     role: 'Founder & Developer',
     tagline: 'Learn vocabulary in VR — flashcards become a memory palace',
     description:
@@ -54,7 +55,8 @@ export const projects = [
     index: 2,
     title: 'Monarch S2',
     platform: 'Apple TV+',
-    year: '2024',
+    year: '2026',
+    releasing: true,
     role: 'Set Designer',
     tagline: 'Legacy of Monsters — Season 2 for Apple TV+',
     description:
@@ -64,8 +66,22 @@ export const projects = [
     category: 'FILM',
   },
   {
-    id: 'nautilus',
+    id: 'missions',
     index: 3,
+    title: 'Missions',
+    platform: 'Meta Quest',
+    year: '2026',
+    role: 'Founder & Developer',
+    tagline: 'Practice conversations with AI characters in immersive scenarios',
+    description:
+      'Missions drops you into real-world scenarios — ordering at a night market, navigating a job interview, chatting at a party — where AI characters respond naturally to what you say. Built on spatial storytelling principles from film production, each mission is a scene you can replay until the conversation feels natural.',
+    highlights: ['AI Conversation', 'Scenario-Based', 'Speech Recognition', 'VR'],
+    color: '#8b5cf6',
+    category: 'VR',
+  },
+  {
+    id: 'nautilus',
+    index: 4,
     title: 'Nautilus',
     platform: 'Disney+',
     year: '2022',
@@ -148,9 +164,9 @@ export const socialLinks = [
 ];
 
 export const stats = [
-  { value: '9+', label: 'Productions' },
+  { value: '8+', label: 'Productions' },
   { value: '6', label: 'Platforms' },
-  { value: '2', label: 'Dimensions' },
+  { value: '5+', label: 'Years' },
 ];
 
 export const filterTabs = ['ALL', 'FILM', 'VR'];

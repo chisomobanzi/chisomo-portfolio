@@ -135,6 +135,23 @@ const ProjectDetail = () => {
                   </span>
                 ))}
               </motion.div>
+
+              {/* View Project Link */}
+              {project.link && (
+                <motion.a
+                  variants={fadeIn}
+                  custom={5}
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 mt-6 bg-orange-600 hover:bg-orange-700 text-white font-inter font-medium text-sm px-6 py-3 rounded transition-colors"
+                >
+                  View on Quest Store
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </motion.a>
+              )}
             </div>
 
             {/* Right - Details Sidebar */}
@@ -155,9 +172,16 @@ const ProjectDetail = () => {
                 <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-2">
                   Year
                 </p>
-                <p className="font-inter text-stone-700 font-medium">
-                  {project.year}
-                </p>
+                <div className="flex items-center gap-3">
+                  <p className="font-inter text-stone-700 font-medium">
+                    {project.year}
+                  </p>
+                  {project.releasing && (
+                    <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-orange-100 text-orange-600 px-2 py-0.5 rounded">
+                      Releasing Soon
+                    </span>
+                  )}
+                </div>
               </div>
               <div>
                 <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-2">
