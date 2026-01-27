@@ -9,6 +9,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LogoTicker from './components/LogoTicker';
+import Services from './components/Services';
 import ProjectDetail from './components/ProjectDetail';
 
 function HomePage() {
@@ -17,9 +18,10 @@ function HomePage() {
       <Hero />
       <LogoTicker />
       <FeaturedProjects />
-      <SkillSpheres />
-      <Testimonials />
       <About />
+      <SkillSpheres />
+      <Services />
+      <Testimonials />
       <Contact />
     </>
   );

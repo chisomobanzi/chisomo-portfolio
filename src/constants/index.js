@@ -173,3 +173,39 @@ export const languages = [
   { name: 'Portuguese', icon: portuguese, level: 'Beginner' },
   { name: 'Shona', icon: shona, level: 'Beginner' },
 ];
+
+export const services = [
+  {
+    title: 'Set Design & Drafting',
+    description:
+      'Traditional and digital set design for film & TV productions.',
+    points: [
+      'Technical drafting & construction drawings',
+      'On-set design supervision',
+      '3D modelling for set builds & props',
+      'Cross-department coordination with SFX & stunts',
+    ],
+  },
+  {
+    title: 'VR / Unreal Development',
+    description:
+      'Immersive experiences, VR previs, and virtual production tools.',
+    points: [
+      'VR previsualization for directors & stakeholders',
+      'Unreal Engine environment & asset development',
+      'Meta Quest application development',
+      'Virtual production pipeline integration',
+    ],
+  },
+  {
+    title: 'Architectural Concepting',
+    description:
+      'Spatial design and 3D concepting for built environments.',
+    points: [
+      'Concept design & spatial narrative',
+      'Parametric modelling with Grasshopper',
+      '3D visualization & rendering',
+      'Design development from brief to build',
+    ],
+  },
+];

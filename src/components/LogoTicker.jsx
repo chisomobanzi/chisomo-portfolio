@@ -5,6 +5,7 @@ import netflixLogo from '../assets/images/netflix.png';
 import nbcuniversalLogo from '../assets/images/nbcuniversal.png';
 import nickelodeonLogo from '../assets/images/nickelodeon.png';
 import metaLogo from '../assets/images/meta.png';
+import legendaryLogo from '../assets/images/legendary.png';
 
 const logos = [
   { src: appleLogo, alt: 'Apple TV+', invert: true },
@@ -13,6 +14,7 @@ const logos = [
   { src: netflixLogo, alt: 'Netflix' },
   { src: nbcuniversalLogo, alt: 'NBCUniversal' },
   { src: nickelodeonLogo, alt: 'Nickelodeon' },
+  { src: legendaryLogo, alt: 'Legendary' },
   { src: metaLogo, alt: 'Meta' },
 ];
 

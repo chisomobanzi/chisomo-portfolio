@@ -1,6 +1,7 @@
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Canvas } from '@react-three/fiber';
+import emailjs from '@emailjs/browser';
 import { socialLinks } from '../constants';
 import { styles } from '../styles';
 
@@ -38,7 +39,38 @@ const SocialIcon = ({ icon }) => {
   return icons[icon] || null;
 };
 
+const inputStyles =
+  'w-full bg-stone-100 border border-stone-200 rounded px-4 py-3 font-inter text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-orange-600 transition-colors duration-200';
+
 const Contact = () => {
+  const formRef = useRef();
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState('idle'); // idle | sending | success | error
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setStatus('sending');
+
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      )
+      .then(() => {
+        setStatus('success');
+        setForm({ name: '', email: '', message: '' });
+      })
+      .catch(() => {
+        setStatus('error');
+      });
+  };
+
   return (
     <section id="contact" className="relative py-20 sm:py-32 overflow-hidden">
       {/* 3D Globe Background */}
@@ -74,29 +106,81 @@ const Contact = () => {
             collaboration on immersive/XR and virtual production projects.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap gap-4 mt-10">
-            <a
-              href="mailto:chisomo@truefictionstudio.com"
-              className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-inter font-medium text-sm px-6 py-3 rounded transition-colors duration-200"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              Send Email
-            </a>
-            <a
-              href="https://www.imdb.com/name/nm12855764/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border border-stone-300 hover:border-orange-600 text-stone-600 hover:text-orange-600 font-inter font-medium text-sm px-6 py-3 rounded transition-colors duration-200"
-            >
-              View IMDB
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </div>
+          {/* Contact Form */}
+          <form ref={formRef} onSubmit={handleSubmit} className="mt-10 space-y-5">
+            <div className="grid sm:grid-cols-2 gap-5">
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                placeholder="Your Name"
+                required
+                className={inputStyles}
+              />
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                placeholder="Your Email"
+                required
+                className={inputStyles}
+              />
+            </div>
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              placeholder="Your Message"
+              required
+              rows={5}
+              className={`${inputStyles} resize-none`}
+            />
+
+            <div className="flex flex-wrap items-center gap-4">
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-700 disabled:opacity-60 text-white font-inter font-medium text-sm px-6 py-3 rounded transition-colors duration-200"
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                {status === 'sending' ? 'Sending...' : 'Send Message'}
+              </button>
+
+              <a
+                href="https://www.imdb.com/name/nm12855764/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 border border-stone-300 hover:border-orange-600 text-stone-600 hover:text-orange-600 font-inter font-medium text-sm px-6 py-3 rounded transition-colors duration-200"
+              >
+                View IMDB
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
+            {status === 'success' && (
+              <p className="font-inter text-sm text-green-600">
+                Message sent successfully — I&apos;ll be in touch!
+              </p>
+            )}
+            {status === 'error' && (
+              <p className="font-inter text-sm text-red-500">
+                Something went wrong. Please try{' '}
+                <a
+                  href="mailto:chisomo@truefictionstudio.com"
+                  className="underline hover:text-orange-600"
+                >
+                  emailing directly
+                </a>
+                .
+              </p>
+            )}
+          </form>
 
           {/* Social Links */}
           <div className="flex gap-4 mt-12">

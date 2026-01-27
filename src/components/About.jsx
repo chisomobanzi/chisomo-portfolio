@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { stats } from '../constants';
 import { styles } from '../styles';
+import profile from '../assets/people/profile.png';
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -16,38 +17,51 @@ const About = () => {
     <section id="about" className="py-20 sm:py-32">
       <div className="max-w-7xl mx-auto px-6 sm:px-16">
         <div className="grid md:grid-cols-2 gap-16 items-start">
-          {/* Left – Bio */}
+          {/* Left – Photo + Bio */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            className="flex flex-col sm:flex-row gap-8 items-start"
           >
-            <motion.p variants={fadeInUp} custom={0} className={styles.sectionSubText}>
-              About
-            </motion.p>
-            <motion.h2 variants={fadeInUp} custom={1} className={`${styles.sectionHeadText} mt-2`}>
-              Background
-            </motion.h2>
-            <motion.p
-              variants={fadeInUp}
-              custom={2}
-              className="font-inter text-stone-500 text-base leading-relaxed mt-6"
-            >
-              I&apos;m a skilled set designer and 3D software developer working across
-              traditional and virtual art departments in the film industry. My keen eye
-              for detail and passion for innovation have enabled me to have the privilege
-              of working on some of the most exciting and visually stunning productions
-              in Australia&apos;s entertainment industry.
-            </motion.p>
-            <motion.p
-              variants={fadeInUp}
-              custom={3}
-              className="font-inter text-stone-500 text-base leading-relaxed mt-4"
-            >
-              Bridging traditional and virtual production design, I develop XR and
-              immersive experiences that explore the intersection of spatial narrative
-              and interactive design — bringing a filmmaker&apos;s eye to emerging media.
-            </motion.p>
+            {/* Profile photo */}
+            <motion.div variants={fadeInUp} custom={0} className="shrink-0">
+              <img
+                src={profile}
+                alt="Chisomo Banzi"
+                className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-stone-200"
+              />
+            </motion.div>
+
+            {/* Text */}
+            <div>
+              <motion.p variants={fadeInUp} custom={1} className={styles.sectionSubText}>
+                About
+              </motion.p>
+              <motion.h2 variants={fadeInUp} custom={2} className={`${styles.sectionHeadText} mt-2`}>
+                Background
+              </motion.h2>
+              <motion.p
+                variants={fadeInUp}
+                custom={3}
+                className="font-inter text-stone-500 text-base leading-relaxed mt-6"
+              >
+                I&apos;m a skilled set designer and 3D software developer working across
+                traditional and virtual art departments in the film industry. My keen eye
+                for detail and passion for innovation have enabled me to have the privilege
+                of working on some of the most exciting and visually stunning productions
+                in Australia&apos;s entertainment industry.
+              </motion.p>
+              <motion.p
+                variants={fadeInUp}
+                custom={4}
+                className="font-inter text-stone-500 text-base leading-relaxed mt-4"
+              >
+                Bridging traditional and virtual production design, I develop XR and
+                immersive experiences that explore the intersection of spatial narrative
+                and interactive design — bringing a filmmaker&apos;s eye to emerging media.
+              </motion.p>
+            </div>
           </motion.div>
 
           {/* Right – Stats */}
