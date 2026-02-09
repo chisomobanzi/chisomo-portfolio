@@ -102,8 +102,7 @@ const Contact = () => {
           </h2>
 
           <p className="font-inter text-stone-500 text-base leading-relaxed mt-6 max-w-md">
-            Available for remote VAD work, virtual production consulting, and XR development. 
-            Based in Asia-Pacific, working globally.
+            <span className="bg-white/80 backdrop-blur-sm rounded px-1 py-0.5 box-decoration-clone leading-[1.9]">Available for remote VAD work, virtual production consulting, and XR development. Based in Asia-Pacific, working globally.</span>
           </p>
 
           {/* Contact Form */}

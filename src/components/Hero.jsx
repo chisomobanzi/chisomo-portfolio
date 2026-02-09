@@ -32,7 +32,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className={styles.sectionLabel}
           >
-            SET DESIGNER &amp; XR DEVELOPER
+SET DESIGNER &amp; XR DEVELOPER
           </motion.p>
 
           {/* Name */}
@@ -42,9 +42,9 @@ const Hero = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className={`${styles.heroHeadText} mt-4`}
           >
-            CHISOMO
+            <span className="text-orange-600 opacity-60 mr-2">&gt;</span>CHISOMO
             <br />
-            <span className="text-orange-600">BANZI</span>
+            <span className="text-orange-600 opacity-0 mr-2">&gt;</span><span className="text-orange-600">BANZI</span>
           </motion.h1>
 
           {/* Subtitle */}
@@ -54,8 +54,9 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className={`${styles.heroSubText} mt-6 max-w-lg`}
           >
-            I design immersive environments for Film &amp; TV and develop
-            cutting-edge mixed reality applications.
+            <span className="bg-white/80 backdrop-blur-sm rounded px-1 py-0.5 box-decoration-clone leading-[1.9]">Set designer and virtual art department specialist.</span>
+            <br />
+            <span className="bg-white/80 backdrop-blur-sm rounded px-1 py-0.5 box-decoration-clone leading-[1.9]">I build the Unreal environments and the tools to create them - from VR previs through to on-set delivery.</span>
           </motion.p>
 
           {/* CTA */}
@@ -71,7 +72,7 @@ const Hero = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
-            <a href="#contact" className={styles.btnOutline}>
+            <a href="#contact" className={`${styles.btnOutline} bg-white/80 backdrop-blur-sm`}>
               Get in Touch
             </a>
           </motion.div>

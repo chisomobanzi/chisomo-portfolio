@@ -21,9 +21,12 @@ const Navbar = () => {
 
   const handleNavClick = (id) => {
     if (!isHome) return;
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
     setMenuOpen(false);
+    // Delay scroll until after the menu collapses so layout is stable
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }, 350);
   };
 
   return (
@@ -42,6 +45,17 @@ const Navbar = () => {
         >
           CHISOMO BANZI
         </Link>
+
+        {/* Inside the nav, after the logo */}
+        <div className="hidden sm:flex items-center gap-2 ml-4">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+                  <span className="font-inter text-[10px] tracking-wide text-stone-400">
+            Available for projects
+          </span>
+        </div>
 
         {/* Desktop Links */}
         <ul className="hidden sm:flex items-center gap-10">

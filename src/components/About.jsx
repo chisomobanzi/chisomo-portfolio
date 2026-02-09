@@ -46,20 +46,17 @@ const About = () => {
                 custom={3}
                 className="font-inter text-stone-500 text-base leading-relaxed mt-6"
               >
-                I&apos;m a skilled set designer and 3D software developer working across
-                traditional and virtual art departments in the film industry. My keen eye
-                for detail and passion for innovation have enabled me to have the privilege
-                of working on some of the most exciting and visually stunning productions
-                in Australia&apos;s entertainment industry.
+                I bridge traditional set design and virtual art department work, building both the Unreal environments 
+                and the tools to create them. From technical drafting and on-set supervision through to VR previs and ICVFX, 
+                I work across the full pipeline.
               </motion.p>
               <motion.p
                 variants={fadeInUp}
                 custom={4}
                 className="font-inter text-stone-500 text-base leading-relaxed mt-4"
               >
-                Bridging traditional and virtual production design, I develop XR and
-                immersive experiences that explore the intersection of spatial narrative
-                and interactive design — bringing a filmmaker&apos;s eye to emerging media.
+                I also develop XR and immersive experiences, bringing a filmmaker's eye 
+                to spatial narrative and interactive design.
               </motion.p>
             </div>
           </motion.div>
