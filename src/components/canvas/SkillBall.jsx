@@ -126,7 +126,6 @@ const SkillBallCanvas = ({ icon }) => {
         <OrbitControls
           enableZoom={false}
           enablePan={false}
-          enableRotate={false}
         />
         <Ball imgUrl={icon} />
         <ContextCleaner />

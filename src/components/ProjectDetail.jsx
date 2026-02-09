@@ -204,12 +204,12 @@ const ProjectDetail = () => {
         </div>
       </motion.section>
 
-      {/* Gallery Placeholder Grid */}
+      {/* Gallery Grid */}
       <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-16">
           <p className={`${styles.sectionSubText} mb-8`}>Gallery</p>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {[1, 2, 3, 4, 5, 6].map((num) => (
+            {(project.gallery || []).map((src, num) => (
               <motion.div
                 key={num}
                 initial={{ opacity: 0, scale: 0.95 }}
@@ -221,11 +221,15 @@ const ProjectDetail = () => {
                   background: `linear-gradient(${135 + num * 20}deg, ${project.color}15, ${project.color}08)`,
                 }}
               >
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-300">
-                    Image {String(num).padStart(2, '0')}
-                  </span>
-                </div>
+                <img
+                  src={src}
+                  alt={`${project.title} — ${num + 1}`}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center"><span class="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-300">Image ${String(num + 1).padStart(2, '0')}</span></div>`;
+                  }}
+                />
               </motion.div>
             ))}
           </div>

@@ -87,12 +87,22 @@ const FeaturedProjects = () => {
               >
                 {/* Hero Image / Video */}
                 <div
-                  className="relative w-full aspect-[2.2/1] sm:aspect-[21/9] rounded-2xl overflow-hidden"
+                  className="relative w-full aspect-[3/4] sm:aspect-[21/9] rounded-2xl overflow-hidden"
                   style={{
                     background: `linear-gradient(135deg, ${current.color}18, ${current.color}35)`,
                   }}
                 >
-                  {/* Large background number */}
+                  {/* Hero image (if available) */}
+                  {current.hero && (
+                    <img
+                      src={current.hero}
+                      alt={current.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      onError={(e) => { e.target.style.display = 'none'; }}
+                    />
+                  )}
+
+                  {/* Large background number (visible as fallback) */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span
                       className="font-orbitron text-[8rem] sm:text-[12rem] md:text-[16rem] font-black opacity-[0.06] select-none leading-none"

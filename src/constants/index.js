@@ -34,25 +34,19 @@ export const projects = [
     highlights: ['VR Previs', 'Unreal Engine', 'Set Drafting', 'On-Location'],
     color: '#16a34a',
     category: 'FILM',
-  },
-  {
-    id: 'constellations',
-    index: 1,
-    title: 'Constellations',
-    platform: 'Meta Quest',
-    year: '2026',
-    role: 'Founder & Developer',
-    tagline: 'Learn vocabulary in VR — flashcards become a memory palace',
-    description:
-      'Constellations transforms flashcard practice into a memory palace, where every word becomes a star in your growing constellation. Combining ancient spatial visualization techniques with spaced repetition, the app shows you words exactly when you\'re about to forget them — now immersive in VR.',
-    highlights: ['Meta Quest', 'Memory Palace', 'Spaced Repetition', 'VR'],
-    color: '#db2777',
-    category: 'VR',
-    link: 'https://www.meta.com/experiences/constellations/25269343592716365/',
+    hero: '/projects/the-bluff/hero.jpg',
+    gallery: [
+      '/projects/the-bluff/gallery-01.jpg',
+      '/projects/the-bluff/gallery-02.jpg',
+      '/projects/the-bluff/gallery-03.jpg',
+      '/projects/the-bluff/gallery-04.jpg',
+      '/projects/the-bluff/gallery-05.jpg',
+      '/projects/the-bluff/gallery-06.jpg',
+    ],
   },
   {
     id: 'monarch-s2',
-    index: 2,
+    index: 1,
     title: 'Monarch S2',
     platform: 'Apple TV+',
     year: '2026',
@@ -64,12 +58,67 @@ export const projects = [
     highlights: ['Franchise Production', 'Large-Scale Sets', 'On-Location Build', 'Apple TV+'],
     color: '#2563eb',
     category: 'FILM',
+    hero: '/projects/monarch-s2/hero.jpg',
+    gallery: [
+      '/projects/monarch-s2/gallery-01.jpg',
+      '/projects/monarch-s2/gallery-02.jpg',
+      '/projects/monarch-s2/gallery-03.jpg',
+      '/projects/monarch-s2/gallery-04.jpg',
+      '/projects/monarch-s2/gallery-05.jpg',
+      '/projects/monarch-s2/gallery-06.jpg',
+    ],
+  },
+  {
+    id: 'metropolis',
+    index: 2,
+    title: 'Metropolis',
+    platform: 'Apple TV+',
+    year: '2022–2023',
+    role: 'Set Designer / VAD Bridge',
+    tagline: "Sam Esmail's 10-episode reimagining of the 1927 sci-fi classic for Apple TV+",
+    description:
+        'Core design team member on one of the largest virtual productions undertaken in Australia. Acted as the bridge between the traditional Art Department and Virtual Art Department — building virtual environments, 3D motion graphics, set elements, and developing software solutions to streamline cross-department workflows. Directed by Sam Esmail (Mr. Robot, Homecoming) and produced by UCP for Apple TV+.',
+    highlights: ['Virtual Production', 'ICVFX', 'Unreal Engine', 'Cross-Department Pipeline'],
+    color: '#a3a3a3',
+    category: 'FILM',
+    hero: '/projects/metropolis/hero.jpg',
+    gallery: [
+      '/projects/metropolis/gallery-01.jpg',
+      '/projects/metropolis/gallery-02.jpg',
+      '/projects/metropolis/gallery-03.jpg',
+      '/projects/metropolis/gallery-04.jpg',
+      '/projects/metropolis/gallery-05.jpg',
+      '/projects/metropolis/gallery-06.jpg',
+    ],
+  },
+  {
+    id: 'nautilus',
+    index: 3,
+    title: 'Nautilus',
+    platform: 'Disney+',
+    year: '2022',
+    role: 'Set Designer',
+    tagline: "Captain Nemo's extraordinary voyages for Disney+",
+    description:
+        "The telling of Captain Nemo's extraordinary voyages in the legendary Sci-fi book '20 Thousand Leagues Under the Sea'. Designed steampunk-era props and prepared 3D models for prop manufacture.",
+    highlights: ['Steampunk Props', '3D Modelling', 'Prop Manufacture', 'Disney+'],
+    color: '#d97706',
+    category: 'FILM',
+    hero: '/projects/nautilus/hero.jpg',
+    gallery: [
+      '/projects/nautilus/gallery-01.jpg',
+      '/projects/nautilus/gallery-02.jpg',
+      '/projects/nautilus/gallery-03.jpg',
+      '/projects/nautilus/gallery-04.jpg',
+      '/projects/nautilus/gallery-05.jpg',
+      '/projects/nautilus/gallery-06.jpg',
+    ],
   },
   {
     id: 'missions',
-    index: 3,
+    index: 4,
     title: 'Missions',
-    platform: 'Meta Quest',
+    platform: 'Meta Quest, iPad',
     year: '2026',
     role: 'Founder & Developer',
     tagline: 'Practice conversations with AI characters in immersive scenarios',
@@ -78,21 +127,41 @@ export const projects = [
     highlights: ['AI Conversation', 'Scenario-Based', 'Speech Recognition', 'VR'],
     color: '#8b5cf6',
     category: 'VR',
+    hero: '/projects/missions/hero.jpg',
+    gallery: [
+      '/projects/missions/gallery-01.jpg',
+      '/projects/missions/gallery-02.jpg',
+      '/projects/missions/gallery-03.jpg',
+      '/projects/missions/gallery-04.jpg',
+      '/projects/missions/gallery-05.jpg',
+      '/projects/missions/gallery-06.jpg',
+    ],
   },
   {
-    id: 'nautilus',
-    index: 4,
-    title: 'Nautilus',
-    platform: 'Disney+',
-    year: '2022',
-    role: 'Set Designer',
-    tagline: "Captain Nemo's extraordinary voyages for Disney+",
+    id: 'constellations',
+    index: 5,
+    title: 'Constellations',
+    platform: 'Meta Quest',
+    year: '2026',
+    role: 'Founder & Developer',
+    tagline: 'Learn vocabulary in VR — flashcards become a memory palace',
     description:
-      "The telling of Captain Nemo's extraordinary voyages in the legendary Sci-fi book '20 Thousand Leagues Under the Sea'. Designed steampunk-era props and prepared 3D models for prop manufacture.",
-    highlights: ['Steampunk Props', '3D Modelling', 'Prop Manufacture', 'Disney+'],
-    color: '#d97706',
-    category: 'FILM',
+        'Constellations transforms flashcard practice into a memory palace, where every word becomes a star in your growing constellation. Combining ancient spatial visualization techniques with spaced repetition, the app shows you words exactly when you\'re about to forget them — now immersive in VR.',
+    highlights: ['Meta Quest', 'Memory Palace', 'Spaced Repetition', 'VR'],
+    color: '#db2777',
+    category: 'VR',
+    link: 'https://www.meta.com/experiences/constellations/25269343592716365/',
+    hero: '/projects/constellations/hero.jpg',
+    gallery: [
+      '/projects/constellations/gallery-01.jpg',
+      '/projects/constellations/gallery-02.jpg',
+      '/projects/constellations/gallery-03.jpg',
+      '/projects/constellations/gallery-04.jpg',
+      '/projects/constellations/gallery-05.jpg',
+      '/projects/constellations/gallery-06.jpg',
+    ],
   },
+
 ];
 
 import davidlee from '../assets/people/davidlee.jpg';
@@ -103,6 +172,14 @@ import noahkadner from '../assets/people/noahkadner.jpg';
 export const testimonials = [
   {
     id: 1,
+    name: 'Noah Kadner',
+    title: 'VP Editor, American Cinematographer',
+    quote:
+      'Any virtual production would be lucky to have someone as talented and curious as him on their team!',
+    image: noahkadner,
+  },
+  {
+    id: 2,
     name: 'David Lee',
     title: 'Production Designer — Nautilus, Watchmen, Brave New World',
     quote:
@@ -110,7 +187,7 @@ export const testimonials = [
     image: davidlee,
   },
   {
-    id: 2,
+    id: 3,
     name: 'Peter Baustaedter',
     title: 'VFX Art Director — Metropolis, Avatar, Rings of Power',
     quote:
@@ -118,20 +195,12 @@ export const testimonials = [
     image: peterbaustaedter,
   },
   {
-    id: 3,
+    id: 4,
     name: 'Tom Nursey',
     title: 'Supervising Art Director — The Wilds, Mortal Kombat, Pacific Rim: Uprising',
     quote:
       'A very important member of the best little design team I have had.',
     image: tomnursey,
-  },
-  {
-    id: 4,
-    name: 'Noah Kadner',
-    title: 'VP Editor, American Cinematographer',
-    quote:
-      'Any virtual production would be lucky to have someone as talented and curious as you on their team!',
-    image: noahkadner,
   },
 ];
 
@@ -146,12 +215,7 @@ export const socialLinks = [
     url: 'https://www.behance.net/chisomobanzi',
     icon: 'behance',
   },
-  {
-    name: 'Instagram',
-    url: 'https://www.instagram.com/chizbanz',
-    icon: 'instagram',
-  },
-  {
+{
     name: 'GitHub',
     url: 'https://github.com/chisomobanzi',
     icon: 'github',
@@ -165,8 +229,8 @@ export const socialLinks = [
 
 export const stats = [
   { value: '8+', label: 'Productions' },
-  { value: '6', label: 'Platforms' },
   { value: '5+', label: 'Years' },
+  { value: '100%', label: 'Remote Ready' },
 ];
 
 export const filterTabs = ['ALL', 'FILM', 'VR'];
@@ -192,36 +256,36 @@ export const languages = [
 
 export const services = [
   {
-    title: 'Set Design & Drafting',
+    title: 'Virtual Art Department',
     description:
-      'Traditional and digital set design for film & TV productions.',
-    points: [
-      'Technical drafting & construction drawings',
-      'On-set design supervision',
-      '3D modelling for set builds & props',
-      'Cross-department coordination with SFX & stunts',
-    ],
-  },
-  {
-    title: 'VR / Unreal Development',
-    description:
-      'Immersive experiences, VR previs, and virtual production tools.',
+        'Remote VAD support for film & TV productions worldwide.',
     points: [
       'VR previsualization for directors & stakeholders',
       'Unreal Engine environment & asset development',
-      'Meta Quest application development',
       'Virtual production pipeline integration',
+      'Remote collaboration with on-set art departments',
     ],
   },
   {
-    title: 'Architectural Concepting',
+    title: 'Set Design & Drafting',
     description:
-      'Spatial design and 3D concepting for built environments.',
+        'Technical design and drafting for physical builds.',
     points: [
-      'Concept design & spatial narrative',
-      'Parametric modelling with Grasshopper',
-      '3D visualization & rendering',
-      'Design development from brief to build',
+      'Construction drawings & technical drafting',
+      '3D modelling for sets & props',
+      'Cross-department coordination (SFX, stunts)',
+      'Design development from concept to build',
+    ],
+  },
+  {
+    title: 'XR Development',
+    description:
+        'Immersive applications and spatial experiences.',
+    points: [
+      'Meta Quest application development',
+      'Interactive 3D experiences',
+      'Spatial UI/UX design',
+      'Unreal Engine & custom tooling',
     ],
   },
 ];

@@ -87,8 +87,8 @@ const Contact = () => {
         </Canvas>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-16">
-        <div className="max-w-xl">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-16 pointer-events-none">
+        <div className="max-w-xl pointer-events-auto">
           {/* Label */}
           <p className="font-orbitron text-[11px] tracking-[0.3em] uppercase text-orange-600 font-medium">
             Get in Touch
