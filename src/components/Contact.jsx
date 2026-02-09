@@ -76,7 +76,7 @@ const Contact = () => {
       {/* 3D Globe Background */}
       <div className="absolute right-0 top-0 w-full md:w-1/2 h-full opacity-30 md:opacity-50">
         <Canvas
-          camera={{ position: [0, 0, 4], fov: 50 }}
+          camera={{ position: [-4, 3, 6], fov: 45 }}
           dpr={[1, 1.5]}
           gl={{ antialias: true, alpha: true }}
           frameloop="always"
@@ -102,8 +102,8 @@ const Contact = () => {
           </h2>
 
           <p className="font-inter text-stone-500 text-base leading-relaxed mt-6 max-w-md">
-            Available for set design positions on major productions and
-            collaboration on immersive/XR and virtual production projects.
+            Available for remote VAD work, virtual production consulting, and XR development. 
+            Based in Asia-Pacific, working globally.
           </p>
 
           {/* Contact Form */}
