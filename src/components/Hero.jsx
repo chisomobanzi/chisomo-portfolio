@@ -54,9 +54,9 @@ SET DESIGNER &amp; XR DEVELOPER
             transition={{ duration: 0.6, delay: 0.7 }}
             className={`${styles.heroSubText} mt-6 max-w-lg`}
           >
-            <span className="bg-white/80 backdrop-blur-sm rounded px-1 py-0.5 box-decoration-clone leading-[1.9]">Set designer and virtual art department specialist.</span>
+            <span className="bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">Set designer and virtual art department specialist.</span>
             <br />
-            <span className="bg-white/80 backdrop-blur-sm rounded px-1 py-0.5 box-decoration-clone leading-[1.9]">I build the Unreal environments and the tools to create them - from VR previs through to on-set delivery.</span>
+            <span className="bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">I build the Unreal environments and the tools to create them - from VR previs through to on-set delivery.</span>
           </motion.p>
 
           {/* CTA */}
@@ -72,7 +72,7 @@ SET DESIGNER &amp; XR DEVELOPER
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
-            <a href="#contact" className={`${styles.btnOutline} bg-white/80 backdrop-blur-sm`}>
+            <a href="#contact" className={`${styles.btnOutline} bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none`}>
               Get in Touch
             </a>
           </motion.div>

@@ -56,17 +56,24 @@ const Contact = () => {
     setStatus('sending');
 
     emailjs
-      .sendForm(
+      .send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        formRef.current,
+        {
+          from_name: form.name,
+          to_name: 'Chisomo',
+          from_email: form.email,
+          to_email: 'chisbanzi@gmail.com',
+          message: form.message,
+        },
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
       )
       .then(() => {
         setStatus('success');
         setForm({ name: '', email: '', message: '' });
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error('EmailJS error:', err);
         setStatus('error');
       });
   };
@@ -102,7 +109,7 @@ const Contact = () => {
           </h2>
 
           <p className="font-inter text-stone-500 text-base leading-relaxed mt-6 max-w-md">
-            <span className="bg-white/80 backdrop-blur-sm rounded px-1 py-0.5 box-decoration-clone leading-[1.9]">Available for remote VAD work, virtual production consulting, and XR development. Based in Asia-Pacific, working globally.</span>
+            <span className="bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">Available for remote VAD work, virtual production consulting, and XR development. Based in Asia-Pacific, working globally.</span>
           </p>
 
           {/* Contact Form */}
