@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useEffect, useState, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../constants';
 import { styles } from '../styles';
 
@@ -18,10 +18,49 @@ const ProjectDetail = () => {
   const navigate = useNavigate();
   const project = projects.find((p) => p.id === id);
 
-  // Scroll to top on mount
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [brokenImages, setBrokenImages] = useState(new Set());
+  const lightboxOpen = lightboxIndex !== null;
+  const gallery = project?.gallery || [];
+
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  const goNext = useCallback(
+    () => setLightboxIndex((i) => (i + 1) % gallery.length),
+    [gallery.length],
+  );
+  const goPrev = useCallback(
+    () => setLightboxIndex((i) => (i - 1 + gallery.length) % gallery.length),
+    [gallery.length],
+  );
+
+  // Scroll to top and reset state on project change
   useEffect(() => {
     window.scrollTo(0, 0);
+    setLightboxIndex(null);
+    setBrokenImages(new Set());
   }, [id]);
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const handler = (e) => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') goNext();
+      if (e.key === 'ArrowLeft') goPrev();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [lightboxOpen, closeLightbox, goNext, goPrev]);
+
+  // Lock body scroll when lightbox is open
+  useEffect(() => {
+    if (lightboxOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [lightboxOpen]);
 
   if (!project) {
     return (
@@ -158,7 +197,7 @@ const ProjectDetail = () => {
             <motion.div
               variants={fadeIn}
               custom={3}
-              className="space-y-8 md:pt-12"
+              className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 md:grid-cols-1 md:space-y-8 md:gap-0 md:pt-12"
             >
               <div>
                 <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-2">
@@ -208,33 +247,151 @@ const ProjectDetail = () => {
       <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-16">
           <p className={`${styles.sectionSubText} mb-8`}>Gallery</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {(project.gallery || []).map((src, num) => (
-              <motion.div
-                key={num}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: num * 0.08 }}
-                className="aspect-[4/3] rounded-lg overflow-hidden"
-                style={{
-                  background: `linear-gradient(${135 + num * 20}deg, ${project.color}15, ${project.color}08)`,
-                }}
-              >
-                <img
-                  src={src}
-                  alt={`${project.title} — ${num + 1}`}
-                  className="w-full h-full object-cover"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.parentElement.innerHTML = `<div class="w-full h-full flex items-center justify-center"><span class="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-300">Image ${String(num + 1).padStart(2, '0')}</span></div>`;
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {gallery.map((item, num) => {
+              const src = typeof item === 'string' ? item : item.src;
+              return (
+                <motion.div
+                  key={num}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: num * 0.08 }}
+                  className="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+                  style={{
+                    background: `linear-gradient(${135 + num * 20}deg, ${project.color}15, ${project.color}08)`,
                   }}
-                />
-              </motion.div>
-            ))}
+                  onClick={() => setLightboxIndex(num)}
+                >
+                  {/\.(mp4|webm|mov)$/i.test(src) ? (
+                    <video
+                      src={src}
+                      className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    />
+                  ) : brokenImages.has(num) ? (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <span className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-300">
+                        Image {String(num + 1).padStart(2, '0')}
+                      </span>
+                    </div>
+                  ) : (
+                    <img
+                      src={src}
+                      alt={`${project.title} — ${num + 1}`}
+                      className="w-full h-full object-cover"
+                      onError={() => setBrokenImages((prev) => new Set(prev).add(num))}
+                    />
+                  )}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            key="lightbox"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+            onClick={closeLightbox}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeLightbox}
+              className="absolute top-6 right-6 text-white/70 hover:text-white transition-colors z-10"
+              aria-label="Close lightbox"
+            >
+              <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Previous arrow */}
+            {gallery.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); goPrev(); }}
+                className="absolute left-4 sm:left-8 text-white/50 hover:text-white transition-colors z-10"
+                aria-label="Previous image"
+              >
+                <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            )}
+
+            {/* Next arrow */}
+            {gallery.length > 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); goNext(); }}
+                className="absolute right-4 sm:right-8 text-white/50 hover:text-white transition-colors z-10"
+                aria-label="Next image"
+              >
+                <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            )}
+
+            {/* Media + Caption */}
+            <motion.div
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.2 }}
+              className="flex flex-col items-center max-w-[90vw] max-h-[85vh]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {(() => {
+                const item = gallery[lightboxIndex];
+                const src = typeof item === 'string' ? item : item.src;
+                const caption = typeof item === 'string' ? '' : item.caption;
+                const isVideo = /\.(mp4|webm|mov)$/i.test(src);
+
+                return (
+                  <>
+                    {isVideo ? (
+                      <video
+                        key={src}
+                        src={src}
+                        className="max-w-full max-h-[75vh] rounded-lg object-contain"
+                        controls
+                        autoPlay
+                      />
+                    ) : (
+                      <img
+                        src={src}
+                        alt={caption || `${project.title} — ${lightboxIndex + 1}`}
+                        className="max-w-full max-h-[75vh] rounded-lg object-contain"
+                      />
+                    )}
+                    {caption && (
+                      <p className="font-inter text-sm text-white/70 mt-4 text-center max-w-lg">
+                        {caption}
+                      </p>
+                    )}
+                    {gallery.length > 1 && (
+                      <p className="font-inter text-xs text-white/40 mt-2">
+                        {lightboxIndex + 1} / {gallery.length}
+                      </p>
+                    )}
+                  </>
+                );
+              })()}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Next Project Navigation */}
       <section className="border-t border-stone-200 py-16 sm:py-24">
