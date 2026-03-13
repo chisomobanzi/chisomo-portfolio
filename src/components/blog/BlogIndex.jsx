@@ -24,10 +24,10 @@ const BlogIndex = () => {
           <p className="font-orbitron text-[11px] tracking-[0.3em] uppercase text-orange-600 font-medium">
             Writing
           </p>
-          <h1 className="font-orbitron font-bold text-3xl sm:text-4xl tracking-[0.02em] text-stone-800 mt-3">
+          <h1 className="font-orbitron font-bold text-3xl sm:text-4xl tracking-[0.02em] text-stone-100 mt-3">
             Blog
           </h1>
-          <p className="font-inter text-stone-500 text-base leading-relaxed mt-4">
+          <p className="font-inter text-stone-400 text-base leading-relaxed mt-4">
             Notes on film, virtual production, language learning, and building things.
           </p>
         </motion.div>
@@ -39,7 +39,7 @@ const BlogIndex = () => {
               <PostCard key={post.slug} post={post} index={i} />
             ))
           ) : (
-            <p className="font-inter text-stone-400 text-sm">
+            <p className="font-inter text-stone-500 text-sm">
               No posts yet. Check back soon.
             </p>
           )}

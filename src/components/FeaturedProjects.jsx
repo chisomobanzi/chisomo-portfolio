@@ -58,7 +58,7 @@ const FeaturedProjects = () => {
                 className={`font-orbitron text-[10px] tracking-[0.2em] px-4 py-2 rounded transition-all duration-200 ${
                   activeFilter === tab
                     ? 'bg-orange-600 text-white'
-                    : 'bg-stone-200/60 text-stone-500 hover:bg-stone-200'
+                    : 'bg-stone-700/60 text-stone-400 hover:bg-stone-700'
                 }`}
               >
                 {tab}
@@ -153,17 +153,17 @@ const FeaturedProjects = () => {
                         className="w-2 h-2 rounded-full shrink-0"
                         style={{ backgroundColor: current.color }}
                       />
-                      <span className="font-orbitron text-[10px] tracking-[0.25em] uppercase text-stone-400">
+                      <span className="font-orbitron text-[10px] tracking-[0.25em] uppercase text-stone-500">
                         {current.role}
                       </span>
                       {current.releasing && (
-                        <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-orange-100 text-orange-600 px-2 py-0.5 rounded shrink-0">
+                        <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-orange-600/20 text-orange-600 px-2 py-0.5 rounded shrink-0">
                           Releasing Soon
                         </span>
                       )}
                     </div>
 
-                    <p className="font-inter text-stone-500 text-base leading-relaxed max-w-xl">
+                    <p className="font-inter text-stone-400 text-base leading-relaxed max-w-xl">
                       {current.tagline}
                     </p>
                   </div>
@@ -173,7 +173,7 @@ const FeaturedProjects = () => {
                     {current.highlights.slice(0, 3).map((tag) => (
                       <span
                         key={tag}
-                        className="font-inter text-[11px] px-3 py-1 rounded-full bg-stone-100 text-stone-500"
+                        className="font-inter text-[11px] px-3 py-1 rounded-full bg-stone-800 text-stone-400"
                       >
                         {tag}
                       </span>
@@ -195,7 +195,7 @@ const FeaturedProjects = () => {
                   className={`rounded-full transition-all duration-300 ${
                     idx === currentIndex
                       ? 'w-8 h-2 bg-orange-600'
-                      : 'w-2 h-2 bg-stone-300 hover:bg-stone-400'
+                      : 'w-2 h-2 bg-stone-600 hover:bg-stone-500'
                   }`}
                   aria-label={`Go to project ${idx + 1}`}
                 />
@@ -203,7 +203,7 @@ const FeaturedProjects = () => {
             </div>
 
             {/* Progress Text */}
-            <span className="font-orbitron text-[11px] tracking-[0.15em] text-stone-400">
+            <span className="font-orbitron text-[11px] tracking-[0.15em] text-stone-500">
               {String(currentIndex + 1).padStart(2, '0')} / {String(filtered.length).padStart(2, '0')}
             </span>
           </div>

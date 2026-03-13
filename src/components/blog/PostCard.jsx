@@ -12,7 +12,7 @@ const PostCard = ({ post, index = 0 }) => {
     >
       <Link
         to={`/blog/${post.slug}`}
-        className="group block bg-white rounded-lg border border-stone-200 hover:border-stone-300 shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden"
+        className="group block bg-stone-900 rounded-lg border border-stone-800 hover:border-stone-700 shadow-sm shadow-black/20 hover:shadow-md hover:shadow-black/30 transition-all duration-200 overflow-hidden"
       >
         {post.coverImage && (
           <div className="aspect-[2.2/1] overflow-hidden">
@@ -25,14 +25,14 @@ const PostCard = ({ post, index = 0 }) => {
         )}
         <div className="p-6">
           {post.featured && (
-            <span className="inline-block font-orbitron text-[9px] tracking-[0.15em] uppercase bg-orange-100 text-orange-600 px-2 py-0.5 rounded mb-3">
+            <span className="inline-block font-orbitron text-[9px] tracking-[0.15em] uppercase bg-orange-600/20 text-orange-600 px-2 py-0.5 rounded mb-3">
               Featured
             </span>
           )}
-          <h2 className="font-orbitron font-bold text-lg sm:text-xl text-stone-800 group-hover:text-orange-600 transition-colors leading-snug">
+          <h2 className="font-orbitron font-bold text-lg sm:text-xl text-stone-100 group-hover:text-orange-600 transition-colors leading-snug">
             {post.title}
           </h2>
-          <p className="font-inter text-stone-500 text-sm leading-relaxed mt-2 line-clamp-2">
+          <p className="font-inter text-stone-400 text-sm leading-relaxed mt-2 line-clamp-2">
             {post.description}
           </p>
           <div className="mt-4">

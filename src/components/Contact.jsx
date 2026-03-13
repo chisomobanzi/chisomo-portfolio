@@ -40,7 +40,7 @@ const SocialIcon = ({ icon }) => {
 };
 
 const inputStyles =
-  'w-full bg-stone-100 border border-stone-200 rounded px-4 py-3 font-inter text-sm text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-orange-600 transition-colors duration-200';
+  'w-full bg-stone-800 border border-stone-800 rounded px-4 py-3 font-inter text-sm text-stone-100 placeholder:text-stone-500 focus:outline-none focus:border-orange-600 transition-colors duration-200';
 
 const Contact = () => {
   const formRef = useRef();
@@ -102,14 +102,14 @@ const Contact = () => {
           </p>
 
           {/* Heading */}
-          <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.03em] mt-4 text-stone-800">
+          <h2 className="font-orbitron font-bold text-3xl sm:text-4xl md:text-5xl tracking-[0.03em] mt-4 text-stone-100">
             Let&apos;s Work
             <br />
             Together
           </h2>
 
-          <p className="font-inter text-stone-500 text-base leading-relaxed mt-6 max-w-md">
-            <span className="bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">Available for remote VAD and set design work, virtual production consulting, and XR development. Based in Asia-Pacific, working globally.</span>
+          <p className="font-inter text-stone-400 text-base leading-relaxed mt-6 max-w-md">
+            <span className="bg-stone-900/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">Available for remote VAD and set design work, virtual production consulting, and XR development. Based in Asia-Pacific, working globally.</span>
           </p>
 
           {/* Contact Form */}
@@ -160,7 +160,7 @@ const Contact = () => {
                 href="https://www.imdb.com/name/nm12855764/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 border border-stone-300 hover:border-orange-600 text-stone-600 hover:text-orange-600 font-inter font-medium text-sm px-6 py-3 rounded transition-colors duration-200"
+                className="inline-flex items-center gap-2 border border-stone-700 hover:border-orange-600 text-stone-300 hover:text-orange-600 font-inter font-medium text-sm px-6 py-3 rounded transition-colors duration-200"
               >
                 View IMDB
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -196,7 +196,7 @@ const Contact = () => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-400 hover:text-orange-600 transition-colors duration-200"
+                className="text-stone-500 hover:text-orange-600 transition-colors duration-200"
                 aria-label={link.name}
               >
                 <SocialIcon icon={link.icon} />

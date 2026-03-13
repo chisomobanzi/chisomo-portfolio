@@ -10,37 +10,37 @@ import 'highlight.js/styles/github-dark.css';
 
 const markdownComponents = {
   h1: ({ children }) => (
-    <h1 className="font-orbitron font-bold text-2xl sm:text-3xl text-stone-800 mt-10 mb-4">
+    <h1 className="font-orbitron font-bold text-2xl sm:text-3xl text-stone-100 mt-10 mb-4">
       {children}
     </h1>
   ),
   h2: ({ children }) => (
-    <h2 className="font-orbitron font-bold text-xl sm:text-2xl text-stone-800 mt-10 mb-3">
+    <h2 className="font-orbitron font-bold text-xl sm:text-2xl text-stone-100 mt-10 mb-3">
       {children}
     </h2>
   ),
   h3: ({ children }) => (
-    <h3 className="font-inter font-bold text-lg text-stone-800 mt-8 mb-2">
+    <h3 className="font-inter font-bold text-lg text-stone-100 mt-8 mb-2">
       {children}
     </h3>
   ),
   p: ({ children }) => (
-    <p className="font-inter text-stone-600 text-base leading-relaxed mb-5">
+    <p className="font-inter text-stone-300 text-base leading-relaxed mb-5">
       {children}
     </p>
   ),
   blockquote: ({ children }) => (
-    <blockquote className="border-l-3 border-orange-600 pl-5 my-6 italic text-stone-500">
+    <blockquote className="border-l-3 border-orange-600 pl-5 my-6 italic text-stone-400">
       {children}
     </blockquote>
   ),
   ul: ({ children }) => (
-    <ul className="font-inter text-stone-600 text-base leading-relaxed mb-5 list-disc pl-6 space-y-1">
+    <ul className="font-inter text-stone-300 text-base leading-relaxed mb-5 list-disc pl-6 space-y-1">
       {children}
     </ul>
   ),
   ol: ({ children }) => (
-    <ol className="font-inter text-stone-600 text-base leading-relaxed mb-5 list-decimal pl-6 space-y-1">
+    <ol className="font-inter text-stone-300 text-base leading-relaxed mb-5 list-decimal pl-6 space-y-1">
       {children}
     </ol>
   ),
@@ -64,13 +64,13 @@ const markdownComponents = {
       );
     }
     return (
-      <code className="bg-stone-100 text-stone-700 text-sm px-1.5 py-0.5 rounded" {...props}>
+      <code className="bg-stone-800 text-stone-200 text-sm px-1.5 py-0.5 rounded" {...props}>
         {children}
       </code>
     );
   },
   pre: ({ children }) => (
-    <pre className="bg-stone-900 text-stone-100 rounded-lg p-5 my-6 overflow-x-auto text-sm leading-relaxed">
+    <pre className="bg-black text-stone-100 rounded-lg p-5 my-6 overflow-x-auto text-sm leading-relaxed">
       {children}
     </pre>
   ),
@@ -82,15 +82,15 @@ const markdownComponents = {
         className="w-full rounded-lg"
       />
       {alt && (
-        <figcaption className="font-inter text-xs text-stone-400 text-center mt-2">
+        <figcaption className="font-inter text-xs text-stone-500 text-center mt-2">
           {alt}
         </figcaption>
       )}
     </figure>
   ),
-  hr: () => <hr className="border-stone-200 my-10" />,
+  hr: () => <hr className="border-stone-800 my-10" />,
   strong: ({ children }) => (
-    <strong className="font-semibold text-stone-800">{children}</strong>
+    <strong className="font-semibold text-stone-100">{children}</strong>
   ),
   em: ({ children }) => <em className="italic">{children}</em>,
 };
@@ -113,7 +113,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="font-orbitron text-2xl font-bold text-stone-800">
+          <h2 className="font-orbitron text-2xl font-bold text-stone-100">
             Post Not Found
           </h2>
           <Link
@@ -143,7 +143,7 @@ const BlogPost = () => {
         >
           <button
             onClick={() => navigate('/blog')}
-            className="inline-flex items-center gap-2 font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-500 hover:text-orange-600 transition-colors mb-10"
+            className="inline-flex items-center gap-2 font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-400 hover:text-orange-600 transition-colors mb-10"
           >
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -165,7 +165,7 @@ const BlogPost = () => {
               className="w-full rounded-lg mb-8"
             />
           )}
-          <h1 className="font-orbitron font-bold text-2xl sm:text-3xl md:text-4xl tracking-[0.02em] text-stone-800 leading-tight">
+          <h1 className="font-orbitron font-bold text-2xl sm:text-3xl md:text-4xl tracking-[0.02em] text-stone-100 leading-tight">
             {post.title}
           </h1>
           <div className="mt-4">
@@ -190,7 +190,7 @@ const BlogPost = () => {
         </motion.div>
 
         {/* Footer */}
-        <hr className="border-stone-200 mt-12 mb-8" />
+        <hr className="border-stone-800 mt-12 mb-8" />
 
         {/* Prev/Next Navigation */}
         <div className="flex justify-between items-start gap-4">
@@ -200,10 +200,10 @@ const BlogPost = () => {
                 to={`/blog/${prevPost.slug}`}
                 className="group block"
               >
-                <p className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-400 mb-1">
+                <p className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-500 mb-1">
                   Previous
                 </p>
-                <p className="font-inter text-sm text-stone-600 group-hover:text-orange-600 transition-colors">
+                <p className="font-inter text-sm text-stone-300 group-hover:text-orange-600 transition-colors">
                   {prevPost.title}
                 </p>
               </Link>
@@ -215,10 +215,10 @@ const BlogPost = () => {
                 to={`/blog/${nextPost.slug}`}
                 className="group block"
               >
-                <p className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-400 mb-1">
+                <p className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-500 mb-1">
                   Next
                 </p>
-                <p className="font-inter text-sm text-stone-600 group-hover:text-orange-600 transition-colors">
+                <p className="font-inter text-sm text-stone-300 group-hover:text-orange-600 transition-colors">
                   {nextPost.title}
                 </p>
               </Link>
@@ -229,7 +229,7 @@ const BlogPost = () => {
         <div className="mt-8 text-center">
           <Link
             to="/blog"
-            className="inline-flex items-center gap-2 font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-500 hover:text-orange-600 transition-colors"
+            className="inline-flex items-center gap-2 font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-400 hover:text-orange-600 transition-colors"
           >
             Back to all posts
           </Link>

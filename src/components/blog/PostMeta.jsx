@@ -6,18 +6,18 @@ const PostMeta = ({ date, readingTime, tags = [] }) => {
   });
 
   return (
-    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-inter text-sm text-stone-400">
+    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-inter text-sm text-stone-500">
       <time dateTime={date}>{formatted}</time>
-      <span className="text-stone-300">·</span>
+      <span className="text-stone-600">·</span>
       <span>{readingTime} min read</span>
       {tags.length > 0 && (
         <>
-          <span className="text-stone-300">·</span>
+          <span className="text-stone-600">·</span>
           <div className="flex flex-wrap gap-1.5">
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="bg-stone-100 text-stone-500 text-xs px-2 py-0.5 rounded-full"
+                className="bg-stone-800 text-stone-400 text-xs px-2 py-0.5 rounded-full"
               >
                 {tag}
               </span>

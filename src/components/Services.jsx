@@ -37,19 +37,19 @@ const Services = () => {
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeInUp}
               custom={i}
-              className="bg-stone-50 rounded-lg p-8"
+              className="bg-stone-900 rounded-lg p-8"
             >
-              <h3 className="font-orbitron text-lg font-semibold text-stone-800">
+              <h3 className="font-orbitron text-lg font-semibold text-stone-100">
                 {service.title}
               </h3>
-              <p className="font-inter text-stone-500 mt-3 leading-relaxed">
+              <p className="font-inter text-stone-400 mt-3 leading-relaxed">
                 {service.description}
               </p>
               <ul className="mt-5 space-y-2">
                 {service.points.map((point) => (
                   <li
                     key={point}
-                    className="font-inter text-sm text-stone-400 flex items-start gap-2"
+                    className="font-inter text-sm text-stone-500 flex items-start gap-2"
                   >
                     <span className="text-orange-600 mt-1 shrink-0">&bull;</span>
                     {point}

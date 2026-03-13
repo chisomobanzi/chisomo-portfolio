@@ -20,9 +20,9 @@ const logos = [
 
 const LogoTicker = () => {
   return (
-    <section className="py-12 sm:py-16 border-b border-stone-200">
+    <section className="py-12 sm:py-16 border-b border-stone-800">
       <div className="max-w-7xl mx-auto px-6 sm:px-16">
-        <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 text-center mb-8">
+        <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-500 text-center mb-8">
           Trusted by leading studios
         </p>
 

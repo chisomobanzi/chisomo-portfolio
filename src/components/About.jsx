@@ -29,7 +29,7 @@ const About = () => {
               <img
                 src={profile}
                 alt="Chisomo Banzi"
-                className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-stone-200"
+                className="w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover border-4 border-stone-800"
               />
             </motion.div>
 
@@ -44,7 +44,7 @@ const About = () => {
               <motion.p
                 variants={fadeInUp}
                 custom={3}
-                className="font-inter text-stone-500 text-base leading-relaxed mt-6"
+                className="font-inter text-stone-400 text-base leading-relaxed mt-6"
               >
                 I bridge traditional set design and virtual art department work, building both the Unreal environments 
                 and the tools to create them. From technical drafting and on-set supervision through to VR previs and ICVFX, 
@@ -53,7 +53,7 @@ const About = () => {
               <motion.p
                 variants={fadeInUp}
                 custom={4}
-                className="font-inter text-stone-500 text-base leading-relaxed mt-4"
+                className="font-inter text-stone-400 text-base leading-relaxed mt-4"
               >
                 I also develop XR and immersive experiences, bringing a filmmaker's eye 
                 to spatial narrative and interactive design.
@@ -78,7 +78,7 @@ const About = () => {
                 <p className="font-orbitron text-4xl sm:text-5xl font-bold text-orange-600">
                   {stat.value}
                 </p>
-                <p className="font-orbitron text-[10px] tracking-[0.25em] uppercase text-stone-400 mt-2">
+                <p className="font-orbitron text-[10px] tracking-[0.25em] uppercase text-stone-500 mt-2">
                   {stat.label}
                 </p>
               </motion.div>

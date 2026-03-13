@@ -17,7 +17,7 @@ const Testimonials = () => {
   const t = testimonials[current];
 
   return (
-    <section className="py-20 sm:py-32 bg-stone-100/50">
+    <section className="py-20 sm:py-32 bg-stone-800/50">
       <div className="max-w-4xl mx-auto px-6 sm:px-16 text-center">
         {/* Label */}
         <p className={styles.sectionSubText}>Testimonials</p>
@@ -42,7 +42,7 @@ const Testimonials = () => {
               </div>
 
               {/* Quote */}
-              <p className="font-inter text-lg sm:text-xl text-stone-600 leading-relaxed italic max-w-2xl mx-auto">
+              <p className="font-inter text-lg sm:text-xl text-stone-300 leading-relaxed italic max-w-2xl mx-auto">
                 {t.quote}
               </p>
 
@@ -54,10 +54,10 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div className="text-left">
-                  <p className="font-orbitron text-sm font-semibold text-stone-800 tracking-[0.1em]">
+                  <p className="font-orbitron text-sm font-semibold text-stone-100 tracking-[0.1em]">
                     {t.name}
                   </p>
-                  <p className="font-inter text-sm text-stone-400 mt-1">
+                  <p className="font-inter text-sm text-stone-500 mt-1">
                     {t.title}
                   </p>
                 </div>
@@ -75,7 +75,7 @@ const Testimonials = () => {
               className={`rounded-full transition-all duration-300 ${
                 idx === current
                   ? 'w-8 h-2 bg-orange-600'
-                  : 'w-2 h-2 bg-stone-300 hover:bg-stone-400'
+                  : 'w-2 h-2 bg-stone-600 hover:bg-stone-500'
               }`}
               aria-label={`Testimonial ${idx + 1}`}
             />

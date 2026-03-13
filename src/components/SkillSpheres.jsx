@@ -28,7 +28,7 @@ class ThreeJSErrorBoundary extends React.Component {
 const SkillBallCanvas = lazy(() =>
   import('./canvas/SkillBall').catch(() => ({
     default: ({ icon }) => (
-      <div className="w-full h-full rounded-full bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center">
+      <div className="w-full h-full rounded-full bg-gradient-to-br from-stone-700 to-stone-800 flex items-center justify-center">
         <img
           src={icon}
           alt="skill"
@@ -42,7 +42,7 @@ const SkillBallCanvas = lazy(() =>
 
 const BallFallback = ({ icon, name }) => (
   <div className="w-full h-28 flex flex-col items-center justify-center">
-    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center">
+    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-stone-700 to-stone-800 flex items-center justify-center">
       <img
         src={icon}
         alt={name}
@@ -95,7 +95,7 @@ const SkillSpheres = () => {
                   <SkillBallCanvas icon={tech.icon} />
                 </Suspense>
               </ThreeJSErrorBoundary>
-              <p className="mt-3 text-center font-inter text-sm text-stone-500">
+              <p className="mt-3 text-center font-inter text-sm text-stone-400">
                 {tech.name}
               </p>
             </div>
@@ -130,10 +130,10 @@ const SkillSpheres = () => {
                   <SkillBallCanvas icon={lang.icon} />
                 </Suspense>
               </ThreeJSErrorBoundary>
-              <p className="mt-3 text-center font-inter text-sm text-stone-500">
+              <p className="mt-3 text-center font-inter text-sm text-stone-400">
                 {lang.name}
               </p>
-              <p className="text-center font-inter text-xs text-stone-400">
+              <p className="text-center font-inter text-xs text-stone-500">
                 ({lang.level})
               </p>
             </div>

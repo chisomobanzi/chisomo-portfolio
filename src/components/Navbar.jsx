@@ -33,7 +33,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-stone-50/90 backdrop-blur-md shadow-sm'
+          ? 'bg-[#221f1e]/90 backdrop-blur-md shadow-sm shadow-black/20'
           : 'bg-transparent'
       }`}
     >
@@ -41,7 +41,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link
           to="/"
-          className="font-orbitron font-bold text-sm sm:text-base tracking-[0.15em] text-stone-800 hover:text-orange-600 transition-colors"
+          className="font-orbitron font-bold text-sm sm:text-base tracking-[0.15em] text-stone-100 hover:text-orange-600 transition-colors"
         >
           CHISOMO BANZI
         </Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-                  <span className="font-inter text-[10px] tracking-wide text-stone-400">
+                  <span className="font-inter text-[10px] tracking-wide text-stone-500">
             Available for projects
           </span>
         </div>
@@ -64,21 +64,21 @@ const Navbar = () => {
               {link.route ? (
                 <Link
                   to={link.route}
-                  className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-500 hover:text-orange-600 transition-colors accent-underline"
+                  className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-400 hover:text-orange-600 transition-colors accent-underline"
                 >
                   {link.title}
                 </Link>
               ) : isHome ? (
                 <button
                   onClick={() => handleNavClick(link.id)}
-                  className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-500 hover:text-orange-600 transition-colors accent-underline"
+                  className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-400 hover:text-orange-600 transition-colors accent-underline"
                 >
                   {link.title}
                 </button>
               ) : (
                 <Link
                   to={`/#${link.id}`}
-                  className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-500 hover:text-orange-600 transition-colors accent-underline"
+                  className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-400 hover:text-orange-600 transition-colors accent-underline"
                 >
                   {link.title}
                 </Link>
@@ -94,17 +94,17 @@ const Navbar = () => {
           aria-label="Toggle menu"
         >
           <span
-            className={`block w-6 h-0.5 bg-stone-700 transition-transform duration-300 ${
+            className={`block w-6 h-0.5 bg-stone-300 transition-transform duration-300 ${
               menuOpen ? 'rotate-45 translate-y-2' : ''
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-stone-700 transition-opacity duration-300 ${
+            className={`block w-6 h-0.5 bg-stone-300 transition-opacity duration-300 ${
               menuOpen ? 'opacity-0' : ''
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-stone-700 transition-transform duration-300 ${
+            className={`block w-6 h-0.5 bg-stone-300 transition-transform duration-300 ${
               menuOpen ? '-rotate-45 -translate-y-2' : ''
             }`}
           />
@@ -118,7 +118,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="sm:hidden bg-stone-50/95 backdrop-blur-md border-t border-stone-200"
+            className="sm:hidden bg-[#221f1e]/95 backdrop-blur-md border-t border-stone-800"
           >
             <ul className="flex flex-col items-center gap-6 py-8">
               {navLinks.map((link) => (
@@ -126,21 +126,21 @@ const Navbar = () => {
                   {link.route ? (
                     <Link
                       to={link.route}
-                      className="font-orbitron text-[12px] tracking-[0.25em] uppercase text-stone-600 hover:text-orange-600 transition-colors"
+                      className="font-orbitron text-[12px] tracking-[0.25em] uppercase text-stone-300 hover:text-orange-600 transition-colors"
                     >
                       {link.title}
                     </Link>
                   ) : isHome ? (
                     <button
                       onClick={() => handleNavClick(link.id)}
-                      className="font-orbitron text-[12px] tracking-[0.25em] uppercase text-stone-600 hover:text-orange-600 transition-colors"
+                      className="font-orbitron text-[12px] tracking-[0.25em] uppercase text-stone-300 hover:text-orange-600 transition-colors"
                     >
                       {link.title}
                     </button>
                   ) : (
                     <Link
                       to={`/#${link.id}`}
-                      className="font-orbitron text-[12px] tracking-[0.25em] uppercase text-stone-600 hover:text-orange-600 transition-colors"
+                      className="font-orbitron text-[12px] tracking-[0.25em] uppercase text-stone-300 hover:text-orange-600 transition-colors"
                     >
                       {link.title}
                     </Link>

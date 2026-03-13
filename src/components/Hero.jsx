@@ -54,9 +54,9 @@ SET DESIGNER &amp; XR DEVELOPER
             transition={{ duration: 0.6, delay: 0.7 }}
             className={`${styles.heroSubText} mt-6 max-w-lg`}
           >
-            <span className="bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">Set designer and virtual art department specialist.</span>
+            <span className="bg-stone-900/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">Set designer and virtual art department specialist.</span>
             <br />
-            <span className="bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">I build the Unreal environments and the tools to create them - from VR previs through to on-set delivery.</span>
+            <span className="bg-stone-900/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">I build the Unreal environments and the tools to create them - from VR previs through to on-set delivery.</span>
           </motion.p>
 
           {/* CTA */}
@@ -72,7 +72,7 @@ SET DESIGNER &amp; XR DEVELOPER
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </a>
-            <a href="#contact" className={`${styles.btnOutline} bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none`}>
+            <a href="#contact" className={`${styles.btnOutline} bg-stone-900/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none`}>
               Get in Touch
             </a>
           </motion.div>
@@ -86,15 +86,15 @@ SET DESIGNER &amp; XR DEVELOPER
         transition={{ delay: 1.5 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="font-orbitron text-[9px] tracking-[0.3em] uppercase text-stone-400">
+        <span className="font-orbitron text-[9px] tracking-[0.3em] uppercase text-stone-500">
           Scroll
         </span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-5 h-8 border-2 border-stone-300 rounded-full flex justify-center pt-1.5"
+          className="w-5 h-8 border-2 border-stone-700 rounded-full flex justify-center pt-1.5"
         >
-          <div className="w-1 h-1.5 bg-stone-400 rounded-full" />
+          <div className="w-1 h-1.5 bg-stone-500 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

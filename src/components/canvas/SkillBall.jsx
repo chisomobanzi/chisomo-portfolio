@@ -20,7 +20,7 @@ const ContextCleaner = () => {
 };
 
 const FallbackBall = ({ icon }) => (
-  <div className="w-full h-full rounded-full bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center">
+  <div className="w-full h-full rounded-full bg-gradient-to-br from-stone-700 to-stone-800 flex items-center justify-center">
     <img
       src={icon}
       alt="skill"

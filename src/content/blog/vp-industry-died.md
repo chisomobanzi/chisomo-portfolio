@@ -1,7 +1,7 @@
 ---
 title: "The VP Industry Just Died in Front of Me"
 slug: "vp-industry-died"
-date: "2026-03-14"
+date: "2026-03-13"
 description: "Two studios closed in Bangkok this week. Here's what that means for virtual production — and why I'm building language tools instead."
 tags: ["film", "virtual-production", "startup"]
 featured: true

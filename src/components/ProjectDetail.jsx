@@ -66,7 +66,7 @@ const ProjectDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h2 className="font-orbitron text-2xl font-bold text-stone-800">
+          <h2 className="font-orbitron text-2xl font-bold text-stone-100">
             Project Not Found
           </h2>
           <Link
@@ -90,7 +90,7 @@ const ProjectDetail = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-16 pt-6">
         <button
           onClick={() => navigate('/#work')}
-          className="inline-flex items-center gap-2 font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-500 hover:text-orange-600 transition-colors"
+          className="inline-flex items-center gap-2 font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-400 hover:text-orange-600 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -127,7 +127,7 @@ const ProjectDetail = () => {
                   className="w-3 h-3 rounded-full"
                   style={{ backgroundColor: project.color }}
                 />
-                <span className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-400">
+                <span className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-500">
                   {project.platform}
                 </span>
               </motion.div>
@@ -136,7 +136,7 @@ const ProjectDetail = () => {
               <motion.h1
                 variants={fadeIn}
                 custom={1}
-                className="font-orbitron font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-[0.02em] text-stone-800"
+                className="font-orbitron font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-[0.02em] text-stone-100"
               >
                 {project.title}
               </motion.h1>
@@ -145,7 +145,7 @@ const ProjectDetail = () => {
               <motion.p
                 variants={fadeIn}
                 custom={2}
-                className="font-inter text-lg sm:text-xl text-stone-500 leading-relaxed mt-6 max-w-xl"
+                className="font-inter text-lg sm:text-xl text-stone-400 leading-relaxed mt-6 max-w-xl"
               >
                 {project.tagline}
               </motion.p>
@@ -154,7 +154,7 @@ const ProjectDetail = () => {
               <motion.p
                 variants={fadeIn}
                 custom={3}
-                className="font-inter text-stone-500 text-base leading-relaxed mt-6 max-w-xl"
+                className="font-inter text-stone-400 text-base leading-relaxed mt-6 max-w-xl"
               >
                 {project.description}
               </motion.p>
@@ -168,7 +168,7 @@ const ProjectDetail = () => {
                 {project.highlights.map((tag) => (
                   <span
                     key={tag}
-                    className="font-inter text-[12px] px-4 py-1.5 rounded-full border border-stone-200 text-stone-500"
+                    className="font-inter text-[12px] px-4 py-1.5 rounded-full border border-stone-800 text-stone-400"
                   >
                     {tag}
                   </span>
@@ -200,52 +200,52 @@ const ProjectDetail = () => {
               className="grid grid-cols-2 gap-x-6 gap-y-4 sm:grid-cols-4 md:grid-cols-1 md:space-y-8 md:gap-0 md:pt-12"
             >
               <div>
-                <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-2">
+                <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-500 mb-2">
                   Platform
                 </p>
-                <p className="font-inter text-stone-700 font-medium">
+                <p className="font-inter text-stone-200 font-medium">
                   {project.platform}
                 </p>
               </div>
               <div>
-                <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-2">
+                <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-500 mb-2">
                   Year
                 </p>
                 <div className="flex items-center gap-3">
-                  <p className="font-inter text-stone-700 font-medium">
+                  <p className="font-inter text-stone-200 font-medium">
                     {project.year}
                   </p>
                   {project.releasing && (
-                    <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-orange-100 text-orange-600 px-2 py-0.5 rounded">
+                    <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-orange-600/20 text-orange-600 px-2 py-0.5 rounded">
                       Releasing Soon
                     </span>
                   )}
                   {project.status && (
-                    <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-stone-100 text-stone-500 px-2 py-0.5 rounded">
+                    <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-stone-800 text-stone-400 px-2 py-0.5 rounded">
                       {project.status}
                     </span>
                   )}
                 </div>
               </div>
               <div>
-                <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-2">
+                <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-500 mb-2">
                   Role
                 </p>
-                <p className="font-inter text-stone-700 font-medium">
+                <p className="font-inter text-stone-200 font-medium">
                   {project.role}
                 </p>
               </div>
               <div>
-                <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-2">
+                <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-500 mb-2">
                   Category
                 </p>
-                <p className="font-inter text-stone-700 font-medium">
+                <p className="font-inter text-stone-200 font-medium">
                   {project.category}
                 </p>
               </div>
               {project.keyFigures?.length > 0 && (
                 <div className="col-span-2 sm:col-span-4 md:col-span-1">
-                  <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-3">
+                  <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-500 mb-3">
                     Key Figures
                   </p>
                   <ul className="space-y-2">
@@ -256,17 +256,17 @@ const ProjectDetail = () => {
                             href={figure.link}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-stone-700 font-medium hover:text-orange-600 transition-colors inline-flex items-center gap-1"
+                            className="text-stone-200 font-medium hover:text-orange-600 transition-colors inline-flex items-center gap-1"
                           >
                             {figure.name}
-                            <svg className="w-3 h-3 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg className="w-3 h-3 text-stone-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                             </svg>
                           </a>
                         ) : (
-                          <span className="text-stone-700 font-medium">{figure.name}</span>
+                          <span className="text-stone-200 font-medium">{figure.name}</span>
                         )}
-                        <span className="text-stone-400"> — {figure.role}</span>
+                        <span className="text-stone-500"> — {figure.role}</span>
                       </li>
                     ))}
                   </ul>
@@ -308,7 +308,7 @@ const ProjectDetail = () => {
                     />
                   ) : brokenImages.has(num) ? (
                     <div className="w-full h-full flex items-center justify-center">
-                      <span className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-300">
+                      <span className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-600">
                         Image {String(num + 1).padStart(2, '0')}
                       </span>
                     </div>
@@ -428,24 +428,24 @@ const ProjectDetail = () => {
       </AnimatePresence>
 
       {/* Next Project Navigation */}
-      <section className="border-t border-stone-200 py-16 sm:py-24">
+      <section className="border-t border-stone-800 py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-16">
           <Link
             to={`/project/${nextProject.id}`}
             className="group block text-center"
           >
-            <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-4">
+            <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-500 mb-4">
               Next Project
             </p>
-            <h3 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-stone-800 group-hover:text-orange-600 transition-colors">
+            <h3 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-stone-100 group-hover:text-orange-600 transition-colors">
               {nextProject.title}
             </h3>
-            <p className="font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-400 mt-3">
+            <p className="font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-500 mt-3">
               {nextProject.platform} — {nextProject.year}
             </p>
             <div className="mt-6">
               <svg
-                className="w-6 h-6 mx-auto text-stone-400 group-hover:text-orange-600 transition-colors"
+                className="w-6 h-6 mx-auto text-stone-500 group-hover:text-orange-600 transition-colors"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
