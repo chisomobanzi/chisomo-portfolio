@@ -61,7 +61,14 @@ const Navbar = () => {
         <ul className="hidden sm:flex items-center gap-10">
           {navLinks.map((link) => (
             <li key={link.id}>
-              {isHome ? (
+              {link.route ? (
+                <Link
+                  to={link.route}
+                  className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-500 hover:text-orange-600 transition-colors accent-underline"
+                >
+                  {link.title}
+                </Link>
+              ) : isHome ? (
                 <button
                   onClick={() => handleNavClick(link.id)}
                   className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-500 hover:text-orange-600 transition-colors accent-underline"
@@ -116,7 +123,14 @@ const Navbar = () => {
             <ul className="flex flex-col items-center gap-6 py-8">
               {navLinks.map((link) => (
                 <li key={link.id}>
-                  {isHome ? (
+                  {link.route ? (
+                    <Link
+                      to={link.route}
+                      className="font-orbitron text-[12px] tracking-[0.25em] uppercase text-stone-600 hover:text-orange-600 transition-colors"
+                    >
+                      {link.title}
+                    </Link>
+                  ) : isHome ? (
                     <button
                       onClick={() => handleNavClick(link.id)}
                       className="font-orbitron text-[12px] tracking-[0.25em] uppercase text-stone-600 hover:text-orange-600 transition-colors"

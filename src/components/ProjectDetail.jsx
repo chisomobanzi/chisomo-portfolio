@@ -89,7 +89,7 @@ const ProjectDetail = () => {
       {/* Back Button */}
       <div className="max-w-7xl mx-auto px-6 sm:px-16 pt-6">
         <button
-          onClick={() => navigate('/')}
+          onClick={() => navigate('/#work')}
           className="inline-flex items-center gap-2 font-orbitron text-[11px] tracking-[0.2em] uppercase text-stone-500 hover:text-orange-600 transition-colors"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -220,6 +220,11 @@ const ProjectDetail = () => {
                       Releasing Soon
                     </span>
                   )}
+                  {project.status && (
+                    <span className="font-orbitron text-[9px] tracking-[0.15em] uppercase bg-stone-100 text-stone-500 px-2 py-0.5 rounded">
+                      {project.status}
+                    </span>
+                  )}
                 </div>
               </div>
               <div>
@@ -238,13 +243,42 @@ const ProjectDetail = () => {
                   {project.category}
                 </p>
               </div>
+              {project.keyFigures?.length > 0 && (
+                <div className="col-span-2 sm:col-span-4 md:col-span-1">
+                  <p className="font-orbitron text-[10px] tracking-[0.3em] uppercase text-stone-400 mb-3">
+                    Key Figures
+                  </p>
+                  <ul className="space-y-2">
+                    {project.keyFigures.map((figure) => (
+                      <li key={figure.name} className="font-inter text-sm">
+                        {figure.link ? (
+                          <a
+                            href={figure.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-stone-700 font-medium hover:text-orange-600 transition-colors inline-flex items-center gap-1"
+                          >
+                            {figure.name}
+                            <svg className="w-3 h-3 text-stone-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                          </a>
+                        ) : (
+                          <span className="text-stone-700 font-medium">{figure.name}</span>
+                        )}
+                        <span className="text-stone-400"> — {figure.role}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </motion.div>
           </div>
         </div>
       </motion.section>
 
       {/* Gallery Grid */}
-      <section className="py-16 sm:py-24">
+      {gallery.length > 0 && <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-16">
           <p className={`${styles.sectionSubText} mb-8`}>Gallery</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
@@ -291,7 +325,7 @@ const ProjectDetail = () => {
             })}
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Lightbox */}
       <AnimatePresence>

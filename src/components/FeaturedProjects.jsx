@@ -92,14 +92,25 @@ const FeaturedProjects = () => {
                     background: `linear-gradient(135deg, ${current.color}18, ${current.color}35)`,
                   }}
                 >
-                  {/* Hero image (if available) */}
+                  {/* Hero image or video (if available) */}
                   {current.hero && (
-                    <img
-                      src={current.hero}
-                      alt={current.title}
-                      className="absolute inset-0 w-full h-full object-cover"
-                      onError={(e) => { e.target.style.display = 'none'; }}
-                    />
+                    /\.(mp4|webm|mov)$/i.test(current.hero) ? (
+                      <video
+                        src={current.hero}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    ) : (
+                      <img
+                        src={current.hero}
+                        alt={current.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        onError={(e) => { e.target.style.display = 'none'; }}
+                      />
+                    )
                   )}
 
                   {/* Large background number (visible as fallback) */}

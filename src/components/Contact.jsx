@@ -109,7 +109,7 @@ const Contact = () => {
           </h2>
 
           <p className="font-inter text-stone-500 text-base leading-relaxed mt-6 max-w-md">
-            <span className="bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">Available for remote VAD work, virtual production consulting, and XR development. Based in Asia-Pacific, working globally.</span>
+            <span className="bg-white/80 sm:bg-transparent backdrop-blur-sm sm:backdrop-blur-none rounded px-1 sm:px-0 py-0.5 sm:py-0 box-decoration-clone leading-[1.9] sm:leading-relaxed">Available for remote VAD and set design work, virtual production consulting, and XR development. Based in Asia-Pacific, working globally.</span>
           </p>
 
           {/* Contact Form */}
