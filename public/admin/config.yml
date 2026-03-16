@@ -2,7 +2,7 @@ backend:
   name: github
   repo: chisomobanzi/chisomo-website
   branch: master
-  base_url: https://chisomo-website.vercel.app
+  base_url: https://chisomobanzi.com
   auth_endpoint: api/auth
 
 media_folder: "public/uploads/blog"
