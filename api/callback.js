@@ -16,27 +16,33 @@ export default async function handler(req, res) {
 
   const data = await response.json();
 
-  const token = data.access_token;
-  const error = data.error_description || data.error || "Unknown error";
-
-  const script = token
-    ? `
-      const msg = "authorization:github:success:" + JSON.stringify({token: "${token}", provider: "github"});
-      (function sendMsg() {
-        if (window.opener) {
-          window.opener.postMessage(msg, "*");
-          setTimeout(function() { window.close(); }, 500);
-        }
-      })();
-    `
-    : `
-      const msg = "authorization:github:error:" + ${JSON.stringify(error)};
-      if (window.opener) {
-        window.opener.postMessage(msg, "*");
-      }
-      document.body.innerText = "Authorization failed: " + ${JSON.stringify(error)};
-    `;
+  const content = data.access_token
+    ? `authorization:github:success:{"token":"${data.access_token}","provider":"github"}`
+    : `authorization:github:error:${JSON.stringify(data)}`;
 
   res.setHeader("Content-Type", "text/html");
-  res.send(`<!DOCTYPE html><html><body><script>${script}</script></body></html>`);
+  res.send(`<!DOCTYPE html>
+<html>
+  <body>
+    <p id="status">Authorizing...</p>
+    <script>
+      var content = ${JSON.stringify(content)};
+      var status = document.getElementById("status");
+
+      if (!window.opener) {
+        status.innerText = "Error: no opener window found. Please try logging in again.";
+      } else {
+        // Handshake: tell the CMS we are authorizing
+        window.opener.postMessage("authorizing:github", "*");
+
+        // Wait for CMS to respond, then send the token
+        window.addEventListener("message", function(e) {
+          window.opener.postMessage(content, e.origin);
+          status.innerText = "Authorization complete. This window will close.";
+          setTimeout(function() { window.close(); }, 1000);
+        }, false);
+      }
+    </script>
+  </body>
+</html>`);
 }
