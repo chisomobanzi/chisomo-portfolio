@@ -22,43 +22,43 @@ export default async function handler(req, res) {
   const data = await tokenRes.json();
   const token = data.access_token;
 
-  if (!token) {
-    res.status(500).send(`Token exchange failed: ${JSON.stringify(data)}`);
-    return;
-  }
-
-  const message = JSON.stringify({
-    token,
-    provider: "github",
-  });
-
   res.setHeader("Content-Type", "text/html");
   res.send(`<!DOCTYPE html>
 <html>
-  <body>
-    <p id="status">Completing login...</p>
+  <body style="font-family: monospace; padding: 2rem; font-size: 16px;">
+    <h2>OAuth Debug</h2>
+    <p><strong>Token received:</strong> ${token ? "YES (" + token.substring(0, 8) + "...)" : "NO"}</p>
+    <p><strong>GitHub response:</strong> ${JSON.stringify(data).replace(/</g, "&lt;")}</p>
+    <p><strong>Has opener:</strong> <span id="opener">checking...</span></p>
+    <p><strong>Handshake status:</strong> <span id="handshake">waiting...</span></p>
+    <p><strong>Message sent:</strong> <span id="sent">no</span></p>
     <script>
-      (function() {
-        var status = document.getElementById("status");
+      var openerEl = document.getElementById("opener");
+      var handshakeEl = document.getElementById("handshake");
+      var sentEl = document.getElementById("sent");
 
-        if (!window.opener) {
-          status.innerText = "Error: no popup opener. Copy this and report it.";
-          return;
-        }
+      openerEl.innerText = window.opener ? "YES" : "NO";
 
-        // Decap CMS handshake protocol
+      ${token ? `
+      if (window.opener) {
         window.addEventListener("message", function onMsg(e) {
           window.removeEventListener("message", onMsg);
-          window.opener.postMessage(
-            "authorization:github:success:" + ${JSON.stringify(message)},
-            e.origin
-          );
-          status.innerText = "Done! This window should close.";
-          setTimeout(function() { window.close(); }, 1500);
+          handshakeEl.innerText = "received from " + e.origin;
+
+          var msg = "authorization:github:success:" + JSON.stringify({
+            token: "${token}",
+            provider: "github"
+          });
+          window.opener.postMessage(msg, e.origin);
+          sentEl.innerText = "YES - " + msg.substring(0, 60) + "...";
         });
 
         window.opener.postMessage("authorizing:github", "*");
-      })();
+        handshakeEl.innerText = "sent authorizing:github, waiting for reply...";
+      }
+      ` : `
+        sentEl.innerText = "FAILED - no token from GitHub";
+      `}
     </script>
   </body>
 </html>`);
