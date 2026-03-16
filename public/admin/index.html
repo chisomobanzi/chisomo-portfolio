@@ -6,45 +6,6 @@
     <title>Blog Admin — Chisomo Banzi</title>
   </head>
   <body>
-    <div id="nc-root"></div>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <script>
-      CMS.init({
-        config: {
-          load_config_file: false,
-          backend: {
-            name: "github",
-            repo: "chisomobanzi/chisomo-website",
-            branch: "master",
-            auth_type: "pkce",
-            app_id: "Ov23liZ2EOLRQRcTniQI",
-          },
-          media_folder: "public/uploads/blog",
-          public_folder: "/uploads/blog",
-          collections: [
-            {
-              name: "blog",
-              label: "Blog Posts",
-              folder: "src/content/blog",
-              create: true,
-              slug: "{{slug}}",
-              extension: "md",
-              format: "frontmatter",
-              fields: [
-                { label: "Title", name: "title", widget: "string" },
-                { label: "Slug", name: "slug", widget: "string", pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$', "Must be lowercase with hyphens only"] },
-                { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false },
-                { label: "Description", name: "description", widget: "text" },
-                { label: "Tags", name: "tags", widget: "list", default: [] },
-                { label: "Featured", name: "featured", widget: "boolean", default: false },
-                { label: "Reading Time (minutes)", name: "readingTime", widget: "number", required: false, hint: "Leave blank to auto-calculate" },
-                { label: "Cover Image", name: "coverImage", widget: "image", required: false },
-                { label: "Body", name: "body", widget: "markdown" },
-              ],
-            },
-          ],
-        },
-      });
-    </script>
+    <script src="https://unpkg.com/decap-cms@3.1.1/dist/decap-cms.js"></script>
   </body>
 </html>
