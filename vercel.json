@@ -1,5 +1,11 @@
 {
+  "functions": {
+    "api/*.js": {
+      "runtime": "@vercel/node@3"
+    }
+  },
   "rewrites": [
-    { "source": "/((?!admin|api).*)", "destination": "/index.html" }
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/((?!admin).*)", "destination": "/index.html" }
   ]
 }
