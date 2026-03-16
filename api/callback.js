@@ -1,7 +1,12 @@
 export default async function handler(req, res) {
   const { code } = req.query;
 
-  const response = await fetch("https://github.com/login/oauth/access_token", {
+  if (!code) {
+    res.status(400).send("Missing code parameter");
+    return;
+  }
+
+  const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -14,34 +19,46 @@ export default async function handler(req, res) {
     }),
   });
 
-  const data = await response.json();
+  const data = await tokenRes.json();
+  const token = data.access_token;
 
-  const content = data.access_token
-    ? `authorization:github:success:{"token":"${data.access_token}","provider":"github"}`
-    : `authorization:github:error:${JSON.stringify(data)}`;
+  if (!token) {
+    res.status(500).send(`Token exchange failed: ${JSON.stringify(data)}`);
+    return;
+  }
+
+  const message = JSON.stringify({
+    token,
+    provider: "github",
+  });
 
   res.setHeader("Content-Type", "text/html");
   res.send(`<!DOCTYPE html>
 <html>
   <body>
-    <p id="status">Authorizing...</p>
+    <p id="status">Completing login...</p>
     <script>
-      var content = ${JSON.stringify(content)};
-      var status = document.getElementById("status");
+      (function() {
+        var status = document.getElementById("status");
 
-      if (!window.opener) {
-        status.innerText = "Error: no opener window found. Please try logging in again.";
-      } else {
-        // Handshake: tell the CMS we are authorizing
+        if (!window.opener) {
+          status.innerText = "Error: no popup opener. Copy this and report it.";
+          return;
+        }
+
+        // Decap CMS handshake protocol
+        window.addEventListener("message", function onMsg(e) {
+          window.removeEventListener("message", onMsg);
+          window.opener.postMessage(
+            "authorization:github:success:" + ${JSON.stringify(message)},
+            e.origin
+          );
+          status.innerText = "Done! This window should close.";
+          setTimeout(function() { window.close(); }, 1500);
+        });
+
         window.opener.postMessage("authorizing:github", "*");
-
-        // Wait for CMS to respond, then send the token
-        window.addEventListener("message", function(e) {
-          window.opener.postMessage(content, e.origin);
-          status.innerText = "Authorization complete. This window will close.";
-          setTimeout(function() { window.close(); }, 1000);
-        }, false);
-      }
+      })();
     </script>
   </body>
 </html>`);
