@@ -2,8 +2,8 @@ backend:
   name: github
   repo: chisomobanzi/chisomo-website
   branch: master
-  auth_type: pkce
-  app_id: Ov23liZ2EOLRQRcTniQI
+  base_url: https://chisomo-website.vercel.app
+  auth_endpoint: api/auth
 
 media_folder: "public/uploads/blog"
 public_folder: "/uploads/blog"
