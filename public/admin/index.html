@@ -4,11 +4,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Admin — Chisomo Banzi</title>
+    <script>window.CMS_MANUAL_INIT = true;</script>
   </head>
   <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    <div id="nc-root"></div>
+    <script src="https://unpkg.com/decap-cms-app@3.3.3/dist/decap-cms-app.js"></script>
     <script>
-      CMS.init({
+      initCMS({
         config: {
           backend: {
             name: "github",
