@@ -21,8 +21,13 @@ const FeaturedProjects = () => {
   );
 
   const next = useCallback(
-    () => goTo(currentIndex + 1),
-    [currentIndex, goTo]
+    () => goTo((currentIndex + 1) % filtered.length),
+    [currentIndex, filtered.length, goTo]
+  );
+
+  const prev = useCallback(
+    () => goTo((currentIndex - 1 + filtered.length) % filtered.length),
+    [currentIndex, filtered.length, goTo]
   );
 
   // Auto-rotate every 5s
@@ -142,6 +147,30 @@ const FeaturedProjects = () => {
                       VIEW PROJECT
                     </span>
                   </div>
+
+                  {/* Left/Right Arrow Overlays */}
+                  {filtered.length > 1 && (
+                    <>
+                      <button
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); prev(); }}
+                        className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 backdrop-blur-sm text-white/80 hover:bg-black/60 hover:text-white transition-all duration-200 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                        aria-label="Previous project"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                      </button>
+                      <button
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); next(); }}
+                        className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-10 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-black/40 backdrop-blur-sm text-white/80 hover:bg-black/60 hover:text-white transition-all duration-200 flex items-center justify-center opacity-0 group-hover:opacity-100"
+                        aria-label="Next project"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                      </button>
+                    </>
+                  )}
                 </div>
 
                 {/* Project Info — below image */}
