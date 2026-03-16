@@ -3,7 +3,7 @@ backend:
   repo: chisomobanzi/chisomo-website
   branch: master
   auth_type: pkce
-  app_id: # REPLACE with your GitHub OAuth App Client ID (see setup instructions below)
+  app_id: Ov23liZ2EOLRQRcTniQI
 
 media_folder: "public/uploads/blog"
 public_folder: "/uploads/blog"
