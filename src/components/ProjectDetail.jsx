@@ -13,6 +13,48 @@ const fadeIn = {
   }),
 };
 
+const renderGalleryItem = (item, num, project, brokenImages, setBrokenImages, setLightboxIndex) => {
+  const src = typeof item === 'string' ? item : item.src;
+  return (
+    <motion.div
+      key={num}
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: (num % 3) * 0.08 }}
+      className="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+      style={{
+        background: `linear-gradient(${135 + num * 20}deg, ${project.color}15, ${project.color}08)`,
+      }}
+      onClick={() => setLightboxIndex(num)}
+    >
+      {/\.(mp4|webm|mov)$/i.test(src) ? (
+        <video
+          src={src}
+          className="w-full h-full object-cover"
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      ) : brokenImages.has(num) ? (
+        <div className="w-full h-full flex items-center justify-center">
+          <span className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-600">
+            Image {String(num + 1).padStart(2, '0')}
+          </span>
+        </div>
+      ) : (
+        <img
+          src={src}
+          alt={`${project.title} — ${num + 1}`}
+          className="w-full h-full object-cover"
+          onError={() => setBrokenImages((prev) => new Set(prev).add(num))}
+        />
+      )}
+    </motion.div>
+  );
+};
+
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -281,49 +323,42 @@ const ProjectDetail = () => {
       {gallery.length > 0 && <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-16">
           <p className={`${styles.sectionSubText} mb-8`}>Gallery</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {gallery.map((item, num) => {
-              const src = typeof item === 'string' ? item : item.src;
+          {(() => {
+            const hasGroups = gallery.some((item) => item.group);
+            if (!hasGroups) {
               return (
-                <motion.div
-                  key={num}
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: num * 0.08 }}
-                  className="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
-                  style={{
-                    background: `linear-gradient(${135 + num * 20}deg, ${project.color}15, ${project.color}08)`,
-                  }}
-                  onClick={() => setLightboxIndex(num)}
-                >
-                  {/\.(mp4|webm|mov)$/i.test(src) ? (
-                    <video
-                      src={src}
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    />
-                  ) : brokenImages.has(num) ? (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span className="font-orbitron text-[10px] tracking-[0.2em] uppercase text-stone-600">
-                        Image {String(num + 1).padStart(2, '0')}
-                      </span>
-                    </div>
-                  ) : (
-                    <img
-                      src={src}
-                      alt={`${project.title} — ${num + 1}`}
-                      className="w-full h-full object-cover"
-                      onError={() => setBrokenImages((prev) => new Set(prev).add(num))}
-                    />
-                  )}
-                </motion.div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                  {gallery.map((item, num) => renderGalleryItem(item, num, project, brokenImages, setBrokenImages, setLightboxIndex))}
+                </div>
               );
-            })}
-          </div>
+            }
+            const groups = [];
+            let lastGroup = null;
+            gallery.forEach((item, num) => {
+              const groupName = item.group || '';
+              if (groupName !== lastGroup) {
+                groups.push({ name: groupName, items: [] });
+                lastGroup = groupName;
+              }
+              groups[groups.length - 1].items.push({ item, num });
+            });
+            return (
+              <div className="space-y-12">
+                {groups.map((group) => (
+                  <div key={group.name}>
+                    {group.name && (
+                      <h3 className="font-orbitron text-[11px] tracking-[0.25em] uppercase text-stone-500 mb-4 border-l-2 pl-3" style={{ borderColor: project.color }}>
+                        {group.name}
+                      </h3>
+                    )}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                      {group.items.map(({ item, num }) => renderGalleryItem(item, num, project, brokenImages, setBrokenImages, setLightboxIndex))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            );
+          })()}
         </div>
       </section>}
 
