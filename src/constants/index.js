@@ -27,7 +27,6 @@ export const projects = [
     title: 'The Bluff',
     platform: 'Amazon Prime Video',
     year: '2026',
-    releasing: true,
     role: 'Set Designer',
     tagline: 'Caribbean pirate feature for Amazon Prime Video',
     description:
@@ -42,15 +41,15 @@ export const projects = [
       { name: 'Charlie Revai', role: 'Supervising Art Director', link:'https://www.imdb.com/name/nm0720748/' },
     ],
     gallery: [
-      { src: '/projects/the-bluff/gallery-01.jpg', caption: 'Gallery image 1' },
-      { src: '/projects/the-bluff/gallery-02.jpg', caption: 'Gallery image 2' },
-      { src: '/projects/the-bluff/gallery-03.jpg', caption: 'Gallery image 3' },
-      { src: '/projects/the-bluff/gallery-04.jpg', caption: 'Gallery image 4' },
+      { src: '/projects/the-bluff/gallery-01.mp4', caption: 'Gallery video 1' },
+      { src: '/projects/the-bluff/gallery-02.png', caption: 'Gallery image 2' },
+      { src: '/projects/the-bluff/gallery-03.mp4', caption: 'Gallery video 3' },
+      { src: '/projects/the-bluff/gallery-04.mp4', caption: 'Gallery video 4' },
       { src: '/projects/the-bluff/gallery-05.jpg', caption: 'Gallery image 5' },
       { src: '/projects/the-bluff/gallery-06.jpg', caption: 'Gallery image 6' },
       { src: '/projects/the-bluff/gallery-07.jpg', caption: 'Gallery image 7' },
-      { src: '/projects/the-bluff/gallery-08.jpg', caption: 'Gallery image 8' },
-      { src: '/projects/the-bluff/gallery-09.jpg', caption: 'Gallery image 9' },
+      { src: '/projects/the-bluff/gallery-08.png', caption: 'Gallery image 8' },
+      { src: '/projects/the-bluff/gallery-09.mp4', caption: 'Gallery video 9' },
     ],
   },
   {
@@ -89,7 +88,6 @@ export const projects = [
     title: 'Monarch S2',
     platform: 'Apple TV+',
     year: '2026',
-    releasing: true,
     role: 'Set Designer',
     tagline: 'Monsterverse series — Legacy of Monsters Season 2 for Apple TV+',
     description:
