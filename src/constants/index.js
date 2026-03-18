@@ -47,7 +47,7 @@ export const projects = [
       { src: '/projects/the-bluff/gallery-04.mp4', caption: 'Gallery video 4' },
       { src: '/projects/the-bluff/gallery-05.jpg', caption: 'Gallery image 5' },
       { src: '/projects/the-bluff/gallery-06.jpg', caption: 'Gallery image 6' },
-      { src: '/projects/the-bluff/gallery-07.jpg', caption: 'Gallery image 7' },
+      { src: '/projects/the-bluff/gallery-07.mp4', caption: 'Gallery video 7' },
       { src: '/projects/the-bluff/gallery-08.png', caption: 'Gallery image 8' },
       { src: '/projects/the-bluff/gallery-09.mp4', caption: 'Gallery video 9' },
     ],
