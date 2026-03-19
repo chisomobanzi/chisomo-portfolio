@@ -15,6 +15,7 @@ const fadeIn = {
 
 const renderGalleryItem = (item, num, project, brokenImages, setBrokenImages, setLightboxIndex) => {
   const src = typeof item === 'string' ? item : item.src;
+  const caption = typeof item === 'string' ? '' : item.caption;
   return (
     <motion.div
       key={num}
@@ -22,7 +23,7 @@ const renderGalleryItem = (item, num, project, brokenImages, setBrokenImages, se
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: (num % 3) * 0.08 }}
-      className="aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+      className="group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
       style={{
         background: `linear-gradient(${135 + num * 20}deg, ${project.color}15, ${project.color}08)`,
       }}
@@ -50,6 +51,11 @@ const renderGalleryItem = (item, num, project, brokenImages, setBrokenImages, se
           className="w-full h-full object-cover"
           onError={() => setBrokenImages((prev) => new Set(prev).add(num))}
         />
+      )}
+      {caption && (
+        <div className="absolute bottom-0 left-0 right-0 px-3 py-2 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <p className="font-inter text-xs text-white/90">{caption}</p>
+        </div>
       )}
     </motion.div>
   );
